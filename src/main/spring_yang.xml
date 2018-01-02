@@ -42,7 +42,7 @@
 	<bean class="multi.admin.controller.CtrlAdmin"/>
 	<bean id="admin_UserDAO" class="multi.admin.dao.Admin_UserDAO_MysqlImpl" />
 	<bean id="admin_HostDAO" class="multi.admin.dao.Admin_HostDAO_MysqlImpl" />
-	
+		
 </beans>
 
 

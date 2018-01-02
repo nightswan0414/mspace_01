@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin_host">
+
+	<select id="sysdate" resultType="java.lang.String">
+		SELECT NOW()
+	</select>
+	
+	<!-- 판매자 부분 -->
+	<!--
+	DROP PROCEDURE IF EXISTS p_admin_host_findAll;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_host_findAll()
+	BEGIN
+		SELECT * FROM HostT WHERE user_id IN ( SELECT user_id FROM UserT WHERE grade='2');
+	END$$
+	DELIMITER ;
+	CALL p_admin_host_findAll();
+	-->
+	<resultMap id="RM_p_admin_host_findAll" type="multi.admin.vo.Admin_HostVO" >
+		<result property="CRN" column="CRN" jdbcType="VARCHAR" />
+		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
+		<result property="host_name" column="host_name" jdbcType="VARCHAR" />
+		<result property="host_account" column="host_account" jdbcType="VARCHAR" />
+		<result property="zip_code" column="zip_code" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_admin_host_findAll" statementType="CALLABLE" resultMap="RM_p_admin_host_findAll">
+		{call p_admin_host_findAll()}
+	</select>
+	
+	
+	<!-- 
+	DROP PROCEDURE IF EXISTS p_admin_host_request_findAll;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_host_request_findAll()
+	BEGIN
+		SELECT * FROM HostT WHERE user_id IN ( SELECT user_id FROM UserT WHERE grade='1');
+	END$$
+	DELIMITER ;
+	CALL p_admin_host_request_findAll();
+	-->
+	<resultMap id="RM_p_admin_host_request_findAll" type="multi.admin.vo.Admin_HostVO" >
+		<result property="CRN" column="CRN" jdbcType="VARCHAR" />
+		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
+		<result property="host_name" column="host_name" jdbcType="VARCHAR" />
+		<result property="host_account" column="host_account" jdbcType="VARCHAR" />
+		<result property="zip_code" column="zip_code" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_admin_host_request_findAll" statementType="CALLABLE" resultMap="RM_p_admin_host_request_findAll">
+		{call p_admin_host_request_findAll()}
+	</select>
+	
+	
+	<!--
+	DROP PROCEDURE IF EXISTS p_admin_host_one_person_check;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_host_one_person_check(
+		IN v_CRN VARCHAR(50)
+	)
+	BEGIN
+		SELECT * FROM HostT WHERE CRN = v_CRN;
+	END$$
+	DELIMITER ;
+	CALL p_admin_host_one_person_check('444-44-44444');
+	-->
+	<parameterMap id="PM_p_admin_host_one_person_check" type="multi.admin.vo.Admin_HostVO" >
+		<parameter property="CRN" mode="IN" jdbcType="VARCHAR"/>
+	</parameterMap>
+	<resultMap id="RM_p_admin_host_one_person_check" type="multi.admin.vo.Admin_HostVO" >
+		<result property="CRN" column="CRN" jdbcType="VARCHAR" />
+		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
+		<result property="host_name" column="host_name" jdbcType="VARCHAR" />
+		<result property="host_account" column="host_account" jdbcType="VARCHAR" />
+		<result property="zip_code" column="zip_code" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_admin_host_one_person_check" statementType="CALLABLE" 
+		resultMap="RM_p_admin_host_one_person_check"
+		parameterMap="PM_p_admin_host_one_person_check">
+		{call p_admin_host_one_person_check(?)}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
