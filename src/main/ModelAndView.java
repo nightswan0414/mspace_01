@@ -23,7 +23,6 @@ public class ModelAndView {
 	}
 	
 	public ModelAndView( String vn ) {
-		this();
 		viewName = vn;
 	}	
 	
@@ -40,7 +39,7 @@ public class ModelAndView {
 	 * 	fill 을 호출하게되면 request 에 옮겨지게 된다.
 	 */
 	public void fill( HttpServletRequest request ){
-		if( objMap.size() > 0 )
+		if( objMap != null && objMap.size() > 0 )
 		{
 			Set<String> ks = objMap.keySet();
 			for( String key : ks ){

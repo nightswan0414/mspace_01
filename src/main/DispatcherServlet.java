@@ -91,7 +91,7 @@ public class DispatcherServlet extends HttpServlet
 						String l = vr.getPrefix() + viewName + vr.getSuffix();
 						
 						mnv.fill( request );
-						
+
 						RequestDispatcher rd = request.getRequestDispatcher( l );
 						rd.forward(request, response);
 					}
@@ -104,12 +104,15 @@ public class DispatcherServlet extends HttpServlet
 					e = e2;
 				}
 				
+				e.printStackTrace();
+				
 				request.setAttribute("err",e.toString()+"\r\n\r\n" );
 				request.setAttribute("stes", e.getStackTrace());
 
 				ViewResolver vr = spring().getBean("viewResolver",
 					ViewResolver.class);
 				String l = vr.getPrefix() + "error_page" + vr.getSuffix();
+				
 
 				RequestDispatcher rd = request.getRequestDispatcher( l );
 				rd.forward(request, response);

@@ -4,8 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	
-	<mappers>
-		<mapper resource="main/mapper.xml" />
+	
+	
+	<!--
+	 여기에 자기꺼 추가해주세요 이런식으로!!
+	 <mappers>
+		<mapper resource="multi/temp/mapper/mapper.xml" />
 	</mappers>
+	 -->
 	
 </configuration>
