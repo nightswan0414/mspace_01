@@ -28,12 +28,19 @@
 	</bean>
 
 	<bean id="viewResolver" class="main.ViewResolver">
-		<property name="prefix" value="WEB-INF/grape_jsp/"/>
+		<property name="prefix" value="WEB-INF/min_jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
 	<bean id="mapping" class="main.MethodAndTargetMap"/>
-		
+	
+	
+	<!--
+	여기다 자기꺼 추가해주세요!!!!!!
+	<bean class="multi.temp.controller.CtrlSh"/>
+	-->
+	
+	<bean class="multi.temp.controller.CtrlSh"/>
 </beans>
 
 
