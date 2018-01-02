@@ -63,7 +63,8 @@ public class BeanUtil
 		return (  pn.equals("title") || 
 			pn.equals("content") || 
 			pn.equals("repleBody") || 
-			pn.equals("nickName") ); 		
+			pn.equals("nickname") ||
+			pn.equals("user_name") ); 		
 	}
 	
 	//	String l2 = BeanUtil.toPropName( l );
