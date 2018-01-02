@@ -91,7 +91,37 @@
 		{call p_admin_user_DelUser(?)}
 	</delete>
 	
-	
+	<!--
+	DROP PROCEDURE IF EXISTS p_admin_user_modifyUser;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_user_modifyUser(
+		IN v_user_id VARCHAR(50),
+		IN v_user_name VARCHAR(50),
+		IN v_phone VARCHAR(50),
+		IN v_nickname VARCHAR(50),
+		IN v_zipcode VARCHAR(50),
+		IN v_email VARCHAR(50)
+	)
+	BEGIN
+		UPDATE UserT SET user_name = v_user_name, phone=v_phone, 
+		nickname=v_nickname, zipcode = v_zipcode, email = v_email WHERE user_id = v_user_id;
+	END$$
+	DELIMITER ;
+	CALL p_admin_user_modifyUser('user','일양재', '01012345678', 'gentleGuy', '442-471', 'remd@naver.com');
+	-->
+	<parameterMap id="PM_p_admin_user_modifyUser" type="multi.admin.vo.Admin_UserVO" >
+		<parameter property="user_id" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="user_name" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="phone" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="nickname" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="zipcode" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="email" mode="IN" jdbcType="VARCHAR"/>
+	</parameterMap>
+	<update id="p_admin_user_modifyUser" statementType="CALLABLE"
+		parameterType = "multi.admin.vo.Admin_UserVO"
+		parameterMap = "PM_p_admin_user_modifyUser">
+		{call p_admin_user_modifyUser(?,?,?,?,?,?)}
+	</update>
 	
 </mapper>
 <!--

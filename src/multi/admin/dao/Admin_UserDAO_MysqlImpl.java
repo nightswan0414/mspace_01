@@ -27,4 +27,9 @@ public class Admin_UserDAO_MysqlImpl implements Admin_UserDAO {
 		return sqlSession.selectOne("admin_user.p_admin_user_DelUser",uvo);
 	}
 
+	@Override
+	public int user_modify(Admin_UserVO uvo) throws Exception {
+		return sqlSession.update("admin_user.p_admin_user_modifyUser",uvo);
+	}
+
 }

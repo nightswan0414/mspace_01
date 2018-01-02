@@ -18,13 +18,11 @@
 </script>
 </head>
 <body>
-<h1>개별 유저 상세 정보</h1>
-<table border="1" width="500">
+<h1>개별 유저 상세 정보 수정하기</h1>
+<table border="1">
 	<tr>
 		<td>이름</td>
 		<td>유저 ID</td>
-		<td>주민등록번호 앞자리</td>
-		<td>주민등록번호 뒷자리</td>
 		<td>전화번호</td>
 		<td>닉네임</td>
 		<td>주소</td>
@@ -33,18 +31,24 @@
 	<tr>
 		<td>${vo.user_name}</td>
 		<td>${vo.user_id}</td>
-		<td>${vo.SSN1}</td>
-		<td>${vo.SSN2}</td>
 		<td>${vo.phone}</td>
 		<td>${vo.nickname}</td>
 		<td>${vo.zipcode}</td>
 		<td>${vo.email}</td>
 	</tr>
 </table>
-<form method="POST" action="admin_user_mod.do">
-	<input type="hidden" name="user_id" value="${vo.user_id}" />
+<br/>
+<br/>
+<form method="POST" action="admin_user_mod2.do">
+		<input type ="hidden" name="user_id" value="${vo.user_id}"></input>
+		이름 : <input type="text" name="user_name" value="${vo.user_name}" /> <br/>
+		전화번호 : <input type="text" name="phone" value="${vo.phone}" /> <br/>
+		닉네임 : <input type="text" name="nickname" value="${vo.nickname}" /> <br/>
+		주소 : <input type="text" name="zipcode" value="${vo.zipcode}" /> <br/>
+		이메일 : <input type="text" name="email" value="${vo.email}" /> <br/>
 	<button type="submit">수정하기</button>
 </form>
+
 <form method="POST" action="admin_users.do">
 	<button type="submit">취소하기</button>
 </form>

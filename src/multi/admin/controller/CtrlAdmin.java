@@ -81,6 +81,23 @@ public class CtrlAdmin {
 		
 		return mnv;
 	}
+	@RequestMapping("/admin_user_mod.do")
+	public ModelAndView admin_user_mod( @ModelAttribute Admin_UserVO uvo ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_user_mod");
+		Admin_UserVO vo = admin_UserDAO.user_check(uvo);
+		mnv.addObject("vo", vo);
+		
+		return mnv;
+	}
+	
+	@RequestMapping("/admin_user_mod2.do")
+	public ModelAndView admin_user_mod2( @ModelAttribute Admin_UserVO uvo ) throws Exception {
+		ModelAndView mnv = new ModelAndView();
+		admin_UserDAO.user_modify(uvo);
+		
+		mnv.setViewName("redirect:/admin_users.do");
+		return mnv;
+	}
 	@RequestMapping("/admin_user_stastic.do")
 	public ModelAndView admin_user_stastic() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_user_stastic");
