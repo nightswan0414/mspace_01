@@ -24,11 +24,12 @@
 		<td>호스트 이름</td>
 		<td>신청 정보 확인하기</td>
 	</tr>
+	
 	<jl:forEach var="vo" items="${ls}">
 		<tr>
 			<td>${vo.user_id}</td>
 			<td>${vo.host_name}</td>
-			<td><a href="admin_host_request_view.do?CRN=${vo.CRN}">정보 확인 하기</a></td>
+			<td><a href="admin_host_request_view.do?CRN=${vo.CRN }">정보 확인 하기</a></td>
 		</tr>
 	</jl:forEach>
 </table>

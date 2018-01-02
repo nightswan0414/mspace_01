@@ -31,7 +31,7 @@
 		<td>${vo.user_id}</td>
 		<td>${vo.host_name}</td>
 		<td>${vo.host_account}</td>
-		<td>${vo.zip_code}</td>
+		<td>${vo.zipcode}</td>
 	</tr>
 </table>
 

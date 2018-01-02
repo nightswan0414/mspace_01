@@ -115,9 +115,11 @@ public class CtrlAdmin {
 	}
 	
 	@RequestMapping("/admin_host_request_view.do")
-	public ModelAndView admin_host_request_view( @ModelAttribute Admin_HostVO hvo ) throws Exception {
+	public ModelAndView admin_host_request_view( @ModelAttribute Admin_HostVO hvo, @RequestParam("CRN") String CRN ) throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_host_request_view");
 		i(hvo.getCRN());
+		i(CRN);
+		hvo.setCRN(CRN);
 		Admin_HostVO vo = admin_HostDAO.host_check(hvo);
 		mnv.addObject("vo", vo);
 		
