@@ -23,7 +23,6 @@
 	<tr>
 		<td>이름</td>
 		<td>유저 ID</td>
-		<td>등급</td>
 		<td>이메일</td>
 		<td>탈퇴 시키기</td>
 	</tr>
@@ -31,7 +30,6 @@
 		<tr>
 			<td>${vo.user_name}</td>
 			<td><a href="admin_user_check.do?user_id=${vo.user_id}">${vo.user_id}</a></td>
-			<td>${vo.grade}</td>
 			<td>${vo.email}</td>
 			<td><a href="admin_user_del.do?user_id=${vo.user_id}">탈퇴</a></td>
 		</tr>

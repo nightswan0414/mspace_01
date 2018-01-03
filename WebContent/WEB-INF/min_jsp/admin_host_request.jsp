@@ -27,9 +27,9 @@
 	
 	<jl:forEach var="vo" items="${ls}">
 		<tr>
-			<td>${vo.user_id}</td>
+			<td><a href="admin_host_user_check.do?user_id=${vo.user_id}">${vo.user_id}</a></td>
 			<td>${vo.host_name}</td>
-			<td><a href="admin_host_request_view.do?CRN=${vo.CRN }">정보 확인 하기</a></td>
+			<td><a href="admin_host_request_view.do?crn=${vo.crn}">정보 확인 하기</a></td>
 		</tr>
 	</jl:forEach>
 </table>

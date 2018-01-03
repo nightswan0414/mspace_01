@@ -64,7 +64,15 @@ public class BeanUtil
 			pn.equals("content") || 
 			pn.equals("repleBody") || 
 			pn.equals("nickname") ||
-			pn.equals("user_name") ); 		
+			pn.equals("user_name") ||
+			pn.equals("faq_title") ||
+			pn.equals("faq_content") ||
+			pn.equals("notice_title") ||
+			pn.equals("notice_content") ||
+			pn.equals("o2o_title") ||
+			pn.equals("o2o_content") || 
+			pn.equals("o2o_type")
+			); 		
 	}
 	
 	//	String l2 = BeanUtil.toPropName( l );

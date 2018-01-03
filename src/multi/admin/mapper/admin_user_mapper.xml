@@ -21,8 +21,8 @@
 	-->
 	<resultMap id="RM_p_admin_user_findAll" type="multi.admin.vo.Admin_UserVO" >
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
-		<result property="SSN1" column="SSN1" jdbcType="VARCHAR" />
-		<result property="SSN2" column="SSN2" jdbcType="VARCHAR" />
+		<result property="ssn1" column="ssn1" jdbcType="VARCHAR" />
+		<result property="ssn2" column="ssn2" jdbcType="VARCHAR" />
 		<result property="passwd" column="passwd" jdbcType="VARCHAR" />
 		<result property="user_name" column="user_name" jdbcType="VARCHAR" />
 		<result property="gender" column="gender" jdbcType="VARCHAR" />
@@ -53,8 +53,8 @@
 	</parameterMap>
 	<resultMap id="RM_p_admin_user_findUser" type="multi.admin.vo.Admin_UserVO" >
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
-		<result property="SSN1" column="SSN1" jdbcType="VARCHAR" />
-		<result property="SSN2" column="SSN2" jdbcType="VARCHAR" />
+		<result property="ssn1" column="ssn1" jdbcType="VARCHAR" />
+		<result property="ssn2" column="ssn2" jdbcType="VARCHAR" />
 		<result property="passwd" column="passwd" jdbcType="VARCHAR" />
 		<result property="user_name" column="user_name" jdbcType="VARCHAR" />
 		<result property="gender" column="gender" jdbcType="VARCHAR" />

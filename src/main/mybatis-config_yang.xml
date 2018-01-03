@@ -7,12 +7,10 @@
 	<mappers>
 		<mapper resource="multi/admin/mapper/admin_user_mapper.xml" />
 		<mapper resource="multi/admin/mapper/admin_host_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_notice_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_faq_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_o2oQnA_mapper.xml" />
 	</mappers>
 	
-	
-	<!--
-	 여기에 자기꺼 추가해주세요 이런식으로!!
-	
-	 -->
 	
 </configuration>

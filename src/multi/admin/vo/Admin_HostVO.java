@@ -2,18 +2,20 @@ package multi.admin.vo;
 
 public class Admin_HostVO {
 	public Admin_HostVO(){}
-	public Admin_HostVO(String cRN, String user_id, String host_name, String host_account, String zipcode) {
-		CRN = cRN;
+	
+	public Admin_HostVO(String crn, String user_id, String host_name, String host_account, String zipcode) {
+		this.crn = crn;
 		this.user_id = user_id;
 		this.host_name = host_name;
 		this.host_account = host_account;
 		this.zipcode = zipcode;
 	}
-	public String getCRN() {
-		return CRN;
+
+	public String getCrn() {
+		return crn;
 	}
-	public void setCRN(String cRN) {
-		CRN = cRN;
+	public void setCrn(String crn) {
+		this.crn = crn;
 	}
 	public String getUser_id() {
 		return user_id;
@@ -39,7 +41,8 @@ public class Admin_HostVO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	private String CRN = null;
+
+	private String crn = null;
 	private String user_id = null;
 	private String host_name = null;
 	private String host_account = null;

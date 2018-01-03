@@ -7,6 +7,9 @@
 	<mappers>
 		<mapper resource="multi/admin/mapper/admin_user_mapper.xml" />
 		<mapper resource="multi/admin/mapper/admin_host_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_notice_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_faq_mapper.xml" />
+		<mapper resource="multi/admin/mapper/admin_o2oQnA_mapper.xml" />
 	</mappers>
 	
 	

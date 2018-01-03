@@ -43,6 +43,9 @@
 	<bean id="admin_UserDAO" class="multi.admin.dao.Admin_UserDAO_MysqlImpl" />
 	<bean id="admin_HostDAO" class="multi.admin.dao.Admin_HostDAO_MysqlImpl" />
 	
+	<bean id="admin_NoticeDAO" class="multi.admin.dao.Admin_NoticeDAO_MysqlImpl"/>
+	<bean id="admin_FaqDAO" class="multi.admin.dao.Admin_FaqDAO_MysqlImpl"/>
+	<bean id="admin_o2oQnADAO" class="multi.admin.dao.Admin_o2oQnADAO_MysqlImpl"/>
 </beans>
 
 

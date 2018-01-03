@@ -29,11 +29,29 @@ public class Admin_HostDAO_MysqlImpl implements Admin_HostDAO {
 	}
 
 	@Override
-	public Admin_HostVO host_del( Admin_HostVO hvo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Admin_UserVO host_user_check( Admin_HostVO hvo) throws Exception {
+		return sqlSession.selectOne("admin_host.p_admin_host_user_findUserInfo",hvo);
 	}
 
+	@Override
+	public int host_user_accept( Admin_HostVO hvo) throws Exception {
+		return sqlSession.update("admin_host.p_admin_host_user_accept",hvo);
+	}
+
+	@Override
+	public int host_user_refuse( Admin_HostVO hvo) throws Exception {
+		return sqlSession.delete("admin_host.p_admin_host_user_refuse",hvo);
+	}
+
+	@Override
+	public int host_user_downgrade(Admin_HostVO hvo) throws Exception {
+		return sqlSession.update("admin_host.p_admin_host_user_downgrade",hvo);
+	}
+
+	@Override
+	public int host_user_remove(Admin_HostVO hvo) throws Exception {
+		return sqlSession.delete("admin_host.p_admin_host_user_remove",hvo);
+	}
 
 
 }

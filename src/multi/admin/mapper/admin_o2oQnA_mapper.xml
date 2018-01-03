@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin_o2oQnA">
+
+	<select id="sysdate" resultType="java.lang.String">
+		SELECT NOW()
+	</select>
+
+	<!-- 
+	DROP PROCEDURE IF EXISTS p_o2oQnA_add;
+	DELIMITER $$
+	CREATE PROCEDURE p_o2oQnA_add(
+		IN v_o2o_title TEXT,
+		IN v_o2o_content TEXT,
+		IN v_o2o_email TEXT,
+		IN v_o2o_type TEXT,
+		IN v_o2o_phone TEXT
+	)
+	BEGIN
+		INSERT INTO o2oQnA (o2o_title, o2o_content, o2o_email, o2o_type, o2o_phone ) VALUES( v_o2o_title, v_o2o_content, v_o2o_email,
+ 	v_o2o_type, v_o2o_phone );
+	END$$
+	DELIMITER ;
+	-->
+	<parameterMap id="PM_p_o2oQnA_add" type="multi.admin.vo.Admin_o2oQnAVO" >
+		<parameter property="o2o_title" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="o2o_content" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="o2o_email" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="o2o_type" mode="IN" jdbcType="VARCHAR"/>
+		<parameter property="o2o_phone" mode="IN" jdbcType="VARCHAR"/>
+	</parameterMap>
+	<insert id="p_o2oQnA_add" statementType="CALLABLE"
+		parameterType = "multi.admin.vo.Admin_o2oQnAVO"
+		parameterMap = "PM_p_o2oQnA_add">
+		{call p_o2oQnA_add(?,?,?,?,?)}
+	</insert>
+	
+</mapper>
+

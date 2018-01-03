@@ -27,13 +27,25 @@
 		<td>주소</td>
 	</tr>
 	<tr>
-		<td>${vo.CRN}</td>
+		<td>${vo.crn}</td>
 		<td>${vo.user_id}</td>
 		<td>${vo.host_name}</td>
 		<td>${vo.host_account}</td>
 		<td>${vo.zipcode}</td>
 	</tr>
 </table>
+
+<form method="post" action="admin_host_user_accept.do">
+	<input type="hidden" name="user_id" value="${vo.user_id}"></input>
+	<button type="submit">판매자 등록</button>
+</form>
+<form method="post" action="admin_host_user_refuse.do">
+	<input type="hidden" name="crn" value="${vo.crn}"></input>
+	<button type="submit">거절</button>
+</form>
+<form method="post" action="admin_host_request.do">
+	<button type="submit">취소</button>
+</form>
 
 </body>
 </html>

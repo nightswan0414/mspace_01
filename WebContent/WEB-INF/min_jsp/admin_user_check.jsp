@@ -33,8 +33,8 @@
 	<tr>
 		<td>${vo.user_name}</td>
 		<td>${vo.user_id}</td>
-		<td>${vo.SSN1}</td>
-		<td>${vo.SSN2}</td>
+		<td>${vo.ssn1}</td>
+		<td>${vo.ssn2}</td>
 		<td>${vo.phone}</td>
 		<td>${vo.nickname}</td>
 		<td>${vo.zipcode}</td>
