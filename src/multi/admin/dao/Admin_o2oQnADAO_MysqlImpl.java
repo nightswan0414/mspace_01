@@ -14,12 +14,12 @@ public class Admin_o2oQnADAO_MysqlImpl implements Admin_o2oQnADAO{
 	
 	@Override
 	public List<Admin_o2oQnAVO> findAllAsk() throws Exception {
-		return sqlSession.selectList("admin_o2oQnA.p_o2oQnA_findAll");
+		return sqlSession.selectList("admin_o2oQnA.p_admin_o2oQnA_findAll");
 	}
 
 	@Override
 	public int addAsking( Admin_o2oQnAVO ovo ) throws Exception {
-		return sqlSession.insert("admin_o2oQnA.p_o2oQnA_add", ovo );
+		return sqlSession.insert("admin_o2oQnA.p_admin_o2oQnA_add", ovo );
 	}
 
 	@Override

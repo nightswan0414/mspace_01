@@ -15,27 +15,27 @@ public class Admin_FaqDAO_MysqlImpl implements Admin_FaqDAO {
 	
 	@Override
 	public List<Admin_FaqVO> findAll() throws Exception {
-		return sqlSession.selectList("admin_faq.p_faq_FindAllTexts");
+		return sqlSession.selectList("admin_faq.p_admin_faq_FindAllTexts");
 	}
 	
 	@Override
 	public Admin_FaqVO faq_read(Admin_FaqVO fvo) throws Exception {
-		return sqlSession.selectOne("admin_faq.p_faq_readFaq",fvo);
-	}
-
-	@Override
-	public int faq_add(Admin_FaqVO fvo) throws Exception {
-		return sqlSession.insert("admin_faq.p_faq_addFaq",fvo);
+		return sqlSession.selectOne("admin_faq.p_admin_faq_readFaq",fvo);
 	}
 
 	@Override
 	public int faq_modify(Admin_FaqVO fvo) throws Exception {
-		return sqlSession.update("admin_faq.p_faq_modifyFaq",fvo);
+		return sqlSession.update("admin_faq.p_admin_faq_modifyFaq",fvo);
 	}
 
 	@Override
 	public int faq_remove(Admin_FaqVO fvo) throws Exception {
-		return sqlSession.delete("admin_faq.p_faq_delFaq",fvo);
+		return sqlSession.delete("admin_faq.p_admin_faq_delFaq",fvo);
+	}
+	
+	@Override
+	public int faq_add(Admin_FaqVO fvo) throws Exception {
+		return sqlSession.insert("admin_faq.p_admin_faq_addFaq",fvo);
 	}
 
 

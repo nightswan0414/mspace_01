@@ -14,26 +14,26 @@ public class Admin_NoticeDAO_MysqlImpl implements Admin_NoticeDAO {
 	
 	@Override
 	public List<Admin_NoticeVO> findAll() throws Exception {
-		return sqlSession.selectList("admin_notice.p_notice_FindAllTexts");
+		return sqlSession.selectList("admin_notice.p_admin_notice_FindAllTexts");
 	}
 
 	@Override
 	public Admin_NoticeVO findByPK(Admin_NoticeVO pvo) throws Exception {
-		return sqlSession.selectOne("admin_notice.p_notice_FindText",pvo);
+		return sqlSession.selectOne("admin_notice.p_admin_notice_FindText",pvo);
 	}
 	
 	@Override
 	public int add(Admin_NoticeVO pvo) throws Exception {
-		return sqlSession.insert("admin_notice.p_notice_AddText",pvo);
+		return sqlSession.insert("admin_notice.p_admin_notice_AddText",pvo);
 	}
 
 	@Override
 	public int mod(Admin_NoticeVO pvo) throws Exception {
-		return sqlSession.update("admin_notice.p_notice_modText",pvo);
+		return sqlSession.update("admin_notice.p_admin_notice_modText",pvo);
 	}
 
 	@Override
 	public int delByPK(Admin_NoticeVO pvo) throws Exception {
-		return sqlSession.delete("admin_notice.p_notice_DelByPK",pvo);
+		return sqlSession.delete("admin_notice.p_admin_notice_DelByPK",pvo);
 	}
 }

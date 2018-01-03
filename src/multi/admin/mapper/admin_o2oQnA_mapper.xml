@@ -9,9 +9,9 @@
 	</select>
 
 	<!-- 
-	DROP PROCEDURE IF EXISTS p_o2oQnA_add;
+	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_add;
 	DELIMITER $$
-	CREATE PROCEDURE p_o2oQnA_add(
+	CREATE PROCEDURE p_admin_o2oQnA_add(
 		IN v_o2o_title TEXT,
 		IN v_o2o_content TEXT,
 		IN v_o2o_email TEXT,
@@ -24,30 +24,30 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_o2oQnA_add" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<parameterMap id="PM_p_admin_o2oQnA_add" type="multi.admin.vo.Admin_o2oQnAVO" >
 		<parameter property="o2o_title" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_content" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_email" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_type" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_phone" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
-	<insert id="p_o2oQnA_add" statementType="CALLABLE"
+	<insert id="p_admin_o2oQnA_add" statementType="CALLABLE"
 		parameterType = "multi.admin.vo.Admin_o2oQnAVO"
-		parameterMap = "PM_p_o2oQnA_add">
-		{call p_o2oQnA_add(?,?,?,?,?)}
+		parameterMap = "PM_p_admin_o2oQnA_add">
+		{call p_admin_o2oQnA_add(?,?,?,?,?)}
 	</insert>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_o2oQnA_findAll;
+	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_findAll;
 	DELIMITER $$
-	CREATE PROCEDURE p_o2oQnA_findAll()
+	CREATE PROCEDURE p_admin_o2oQnA_findAll()
 	BEGIN
 		SELECT * FROM o2oQnAT;
 	END$$
 	DELIMITER ;
 	CALL p_o2oQnA_findAll();
 	-->
-	<resultMap id="RM_p_o2oQnA_findAll" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<resultMap id="RM_p_admin_o2oQnA_findAll" type="multi.admin.vo.Admin_o2oQnAVO" >
 		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
 		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
 		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
@@ -57,8 +57,8 @@
 		<result property="the_time" column="the_time" jdbcType="VARCHAR" />
 		<result property="re_o2o_content" column="re_o2o_content" jdbcType="VARCHAR" />
 	</resultMap>
-	<select id="p_o2oQnA_findAll" statementType="CALLABLE" resultMap="RM_p_o2oQnA_findAll">
-		{call p_o2oQnA_findAll()}
+	<select id="p_admin_o2oQnA_findAll" statementType="CALLABLE" resultMap="RM_p_admin_o2oQnA_findAll">
+		{call p_admin_o2oQnA_findAll()}
 	</select>
 </mapper>
 

@@ -4,7 +4,7 @@
 
 <mapper namespace="admin_notice">
 
-	<resultMap id="RM_Text" type="multi.admin.vo.Admin_NoticeVO">
+	<resultMap id="RM_p_admin_notice_FindAllTexts" type="multi.admin.vo.Admin_NoticeVO">
 		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
 		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
 		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
@@ -12,22 +12,22 @@
 	</resultMap>
 
 	<!--
-	DROP PROCEDURE IF EXISTS p_notice_FindAllTexts;
+	DROP PROCEDURE IF EXISTS p_admin_notice_FindAllTexts;
 	DELIMITER $$
-	CREATE PROCEDURE p_notice_FindAllTexts()
+	CREATE PROCEDURE p_admin_notice_FindAllTexts()
 	BEGIN
 		SELECT * FROM NoticeT ORDER BY notice_no DESC;
 	END$$
 	DELIMITER ;
 	-->
-	<select id="p_notice_FindAllTexts" statementType="CALLABLE" resultMap="RM_Text">
-		{call p_notice_FindAllTexts()}
+	<select id="p_admin_notice_FindAllTexts" statementType="CALLABLE" resultMap="RM_p_admin_notice_FindAllTexts">
+		{call p_admin_notice_FindAllTexts()}
 	</select>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_notice_FindText;
+	DROP PROCEDURE IF EXISTS p_admin_notice_FindText;
 	DELIMITER $$
-	CREATE PROCEDURE p_notice_FindText(
+	CREATE PROCEDURE p_admin_notice_FindText(
 		IN v_notice_no INT
 	)
 	BEGIN
@@ -36,19 +36,19 @@
 	DELIMITER ;
 	-->
 	
-	<parameterMap id="PM_p_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
 		<parameter property="notice_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
 	
-	<select id="p_notice_FindText" statementType="CALLABLE"
-		resultMap="RM_Text" parameterMap="PM_p_notice_FindText">
-		{call p_notice_FindText(?)}
+	<select id="p_admin_notice_FindText" statementType="CALLABLE"
+		resultMap="RM_Text" parameterMap="PM_p_admin_notice_FindText">
+		{call p_admin_notice_FindText(?)}
 	</select>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_notice_AddText;
+	DROP PROCEDURE IF EXISTS p_admin_notice_AddText;
 	DELIMITER $$
-	CREATE PROCEDURE p_notice_AddText(
+	CREATE PROCEDURE p_admin_notice_AddText(
 		IN v_notice_title VARCHAR(45),
 		IN v_notice_content TEXT
 	)
@@ -58,20 +58,20 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_notice_AddText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_AddText" type="multi.admin.vo.Admin_NoticeVO">
 		<parameter property="notice_title"   mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="notice_content" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	
-	<insert id="p_notice_AddText" statementType="CALLABLE" 
-		parameterMap="PM_p_notice_AddText">
-		{call p_notice_AddText(?,?)}
+	<insert id="p_admin_notice_AddText" statementType="CALLABLE" 
+		parameterMap="PM_p_admin_notice_AddText">
+		{call p_admin_notice_AddText(?,?)}
 	</insert>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_notice_modText;
+	DROP PROCEDURE IF EXISTS p_admin_notice_modText;
 	DELIMITER $$
-	CREATE PROCEDURE p_notice_modText(
+	CREATE PROCEDURE p_admin_notice_modText(
 		IN v_notice_no INT,
 		IN v_notice_title VARCHAR(45),
 		IN v_notice_content TEXT
@@ -82,20 +82,20 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="p_notice_modText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_modText" type="multi.admin.vo.Admin_NoticeVO">
 		<parameter property="notice_no"   mode="IN" jdbcType="INTEGER"/>
 		<parameter property="notice_title"   mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="notice_content" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
-	<insert id="p_notice_modText" statementType="CALLABLE" 
-		parameterMap="p_notice_modText">
-		{call p_notice_modText(?,?,?)}
+	<insert id="p_admin_notice_modText" statementType="CALLABLE" 
+		parameterMap="PM_p_admin_notice_modText">
+		{call p_admin_notice_modText(?,?,?)}
 	</insert>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_notice_DelByPK;
+	DROP PROCEDURE IF EXISTS p_admin_notice_DelByPK;
 	DELIMITER $$
-	CREATE PROCEDURE p_notice_DelByPK(
+	CREATE PROCEDURE p_admin_notice_DelByPK(
 		IN v_notice_no INT
 	)
 	BEGIN
@@ -104,13 +104,13 @@
 	DELIMITER ;
 	-->
 	
-	<parameterMap id="PM_p_notice_DelByPK" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_DelByPK" type="multi.admin.vo.Admin_NoticeVO">
 		<parameter property="notice_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
 
-	<delete id="p_notice_DelByPK" statementType="CALLABLE"
-		parameterMap="PM_p_notice_DelByPK">
-		{call p_notice_DelByPK(?)}
+	<delete id="p_admin_notice_DelByPK" statementType="CALLABLE"
+		parameterMap="PM_p_admin_notice_DelByPK">
+		{call p_admin_notice_DelByPK(?)}
 	</delete>
 </mapper>
 <!--
