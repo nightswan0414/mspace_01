@@ -14,7 +14,7 @@ public class Admin_o2oQnADAO_MysqlImpl implements Admin_o2oQnADAO{
 	
 	@Override
 	public List<Admin_o2oQnAVO> findAllAsk() throws Exception {
-		return null;
+		return sqlSession.selectList("admin_o2oQnA.p_o2oQnA_findAll");
 	}
 
 	@Override

@@ -37,5 +37,28 @@
 		{call p_o2oQnA_add(?,?,?,?,?)}
 	</insert>
 	
+	<!--
+	DROP PROCEDURE IF EXISTS p_o2oQnA_findAll;
+	DELIMITER $$
+	CREATE PROCEDURE p_o2oQnA_findAll()
+	BEGIN
+		SELECT * FROM o2oQnAT;
+	END$$
+	DELIMITER ;
+	CALL p_o2oQnA_findAll();
+	-->
+	<resultMap id="RM_p_o2oQnA_findAll" type="multi.admin.vo.Admin_o2oQnAVO" >
+		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
+		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
+		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
+		<result property="o2o_email" column="o2o_email" jdbcType="VARCHAR" />
+		<result property="o2o_type" column="o2o_type" jdbcType="VARCHAR" />
+		<result property="o2o_phone" column="o2o_phone" jdbcType="VARCHAR" />
+		<result property="the_time" column="the_time" jdbcType="VARCHAR" />
+		<result property="re_o2o_content" column="re_o2o_content" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_o2oQnA_findAll" statementType="CALLABLE" resultMap="RM_p_o2oQnA_findAll">
+		{call p_o2oQnA_findAll()}
+	</select>
 </mapper>
 

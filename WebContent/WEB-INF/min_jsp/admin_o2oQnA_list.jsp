@@ -43,8 +43,27 @@ taglib
 </head>
 <body>
 	<div class="jumbotron" style="background-color: orange">
-		<h1>FAQ 문의하기</h1>
+		<h1>FAQ 문의내용들</h1>
 	</div>
+	<table>
+		<tr>
+			<td>제목</td>
+			<td>내용</td>
+			<td>이메일</td>
+			<td>전화번호</td>
+			<td>타입</td>
+		</tr>
+		<jl:forEach var="vo" items="${ls}">
+		<tr>
+			<td>${vo.o2o_title}</td>
+			<td>${vo.o2o_content}</td>
+			<td>${vo.o2o_email}</td>
+			<td>${vo.o2o_phone}</td>
+			<td>${vo.o2o_type}</td>
+		</tr>
+		</jl:forEach>
+	</table>
+	<!--  
 	<form action="admin_o2oQnA_add.do" class="form-group" method="POST" name="frm">
 		제목 : <input type="text" name="o2o_title" size="30" /> <br>
 		이메일 : <input type="text" name="o2o_email" size="30" /> <br>
@@ -60,8 +79,8 @@ taglib
 		<br> <input class="btn btn-success" type="submit" value="문의하기" />
 		<input type="button"class="btn btn-success" id="cancel" value="취소하기"/>
 	</form>
-	
-	<a href="admin_o2oQnA_list.do">항목들 보기</a>
+	-->
+
 
 </body>
 </html>

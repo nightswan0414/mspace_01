@@ -316,15 +316,17 @@ public class CtrlAdmin {
 	@RequestMapping("/admin_o2oQnA_add.do")
 	public ModelAndView admin_o2oQnA_add( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
-		i(ovo.getO2o_title());
-		i(ovo.getO2o_email());
-		i(ovo.getO2o_phone());
-		i(ovo.getO2o_type());
-		i(ovo.getO2o_content());
-		int a = admin_o2oQnADAO.addAsking(ovo);
-		i(a);
+		admin_o2oQnADAO.addAsking(ovo);
 		mnv.setViewName("redirect:/admin_o2oQnA.do");
 		
+		return mnv;
+	}
+	
+	@RequestMapping("/admin_o2oQnA_list.do")
+	public ModelAndView admin_o2oQnA_list( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list");
+		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAsk();
+		mnv.addObject("ls", ls);
 		return mnv;
 	}
 }
