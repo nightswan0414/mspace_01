@@ -66,7 +66,7 @@ public class PlainTextEmailSender {
         // outgoing message information
         String mailTo = "remd@naver.com";
         String subject = "Hello my friend";
-        String message = "Hi guy, \n Hope you are doing well. Duke.";
+        String message = "æ»≥Á«œººø‰, \n Hope you are doing well. Duke.";
  
         PlainTextEmailSender mailer = new PlainTextEmailSender();
         

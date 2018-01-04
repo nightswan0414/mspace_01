@@ -63,13 +63,8 @@ public class CtrlAdmin {
 		ModelAndView mnv = new ModelAndView("admin_main");
 		return mnv;
 	}
-	@RequestMapping("/admin_main_test.do")
-	public ModelAndView admin_main_test() throws Exception {
-		ModelAndView mnv = new ModelAndView("admin_main_test");
-		return mnv;
-	}
 	
-	// 干滚 包府
+	/*// 干滚 包府
 	@RequestMapping("/admin_users.do")
 	public ModelAndView admin_users() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_users");
@@ -388,6 +383,6 @@ public class CtrlAdmin {
 		i(ovo.getO2o_no());
 		i(ovo.getRe_o2o_content());
 		return mnv;
-	}
+	}*/
 	
 }
