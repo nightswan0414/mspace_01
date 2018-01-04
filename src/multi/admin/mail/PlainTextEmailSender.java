@@ -58,15 +58,15 @@ public class PlainTextEmailSender {
      */
     public static void main(String[] args) {
         // SMTP server information
-        String host = "smtp.naver.com";
+        String host = "smtp.gmail.com";
         String port = "587";
-        String mailFrom = "remd@naver.com";
-        String password = "didwoehddl2";
+        String mailFrom = "multipro2018@gmail.com";
+        String password = "rmfnpdlxm2";
  
         // outgoing message information
         String mailTo = "remd@naver.com";
         String subject = "Hello my friend";
-        String message = "Hi guy, Hope you are doing well. Duke.";
+        String message = "Hi guy, \n Hope you are doing well. Duke.";
  
         PlainTextEmailSender mailer = new PlainTextEmailSender();
         
