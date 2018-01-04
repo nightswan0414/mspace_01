@@ -4,12 +4,7 @@
 
 <mapper namespace="admin_notice">
 
-	<resultMap id="RM_p_admin_notice_FindAllTexts" type="multi.admin.vo.Admin_NoticeVO">
-		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
-		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
-		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
-		<result property="the_time" column="the_time" jdbcType="VARCHAR"/>
-	</resultMap>
+
 
 	<!--
 	DROP PROCEDURE IF EXISTS p_admin_notice_FindAllTexts;
@@ -20,6 +15,12 @@
 	END$$
 	DELIMITER ;
 	-->
+	<resultMap id="RM_p_admin_notice_FindAllTexts" type="multi.admin.vo.Admin_NoticeVO">
+		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
+		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
+		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
+		<result property="the_time" column="the_time" jdbcType="VARCHAR"/>
+	</resultMap>
 	<select id="p_admin_notice_FindAllTexts" statementType="CALLABLE" resultMap="RM_p_admin_notice_FindAllTexts">
 		{call p_admin_notice_FindAllTexts()}
 	</select>
@@ -35,13 +36,17 @@
 	END$$
 	DELIMITER ;
 	-->
-	
+	<resultMap id="RM_p_admin_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
+		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
+		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
+		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
+		<result property="the_time" column="the_time" jdbcType="VARCHAR"/>
+	</resultMap>
 	<parameterMap id="PM_p_admin_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
 		<parameter property="notice_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
-	
 	<select id="p_admin_notice_FindText" statementType="CALLABLE"
-		resultMap="RM_Text" parameterMap="PM_p_admin_notice_FindText">
+		resultMap="RM_p_admin_notice_FindText" parameterMap="PM_p_admin_notice_FindText">
 		{call p_admin_notice_FindText(?)}
 	</select>
 	

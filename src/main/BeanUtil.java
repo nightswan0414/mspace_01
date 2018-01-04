@@ -60,9 +60,7 @@ public class BeanUtil
 		if( pn == null )
 			return false;
 		
-		return (  pn.equals("title") || 
-			pn.equals("content") || 
-			pn.equals("repleBody") || 
+		return (  
 			pn.equals("nickname") ||
 			pn.equals("user_name") ||
 			pn.equals("faq_title") ||
@@ -71,8 +69,9 @@ public class BeanUtil
 			pn.equals("notice_content") ||
 			pn.equals("o2o_title") ||
 			pn.equals("o2o_content") || 
-			pn.equals("o2o_type")
-			); 		
+			pn.equals("o2o_type") || 
+			pn.equals("re_o2o_content")
+			);
 	}
 	
 	//	String l2 = BeanUtil.toPropName( l );

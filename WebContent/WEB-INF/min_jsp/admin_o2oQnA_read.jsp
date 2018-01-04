@@ -33,8 +33,7 @@ taglib
 <script>
 	$(document).ready(function(){
 		$("#cancel").on("click",function(){
-			document.frm.method="POST";
-			document.frm.action="admin_o2oQnA.do";
+			document.frm.action="admin_o2oQnA_list.do";
 			document.frm.submit();
 		});
 	});
@@ -47,20 +46,44 @@ taglib
 	</div>
 	<table border="1">
 		<tr>
-			<td>제목</td>
-			<td>문의 타입</td>
-			<td>문의 시간</td>
-			<td>답변 내용</td>
+			<td>문의 제목 : </td>
+			<td>${vo.o2o_title}</td>
 		</tr>
-		<jl:forEach var="vo" items="${ls}">
 		<tr>
-			<td><a href="admin_o2oQnA_read.do?o2o_no=${vo.o2o_no}">${vo.o2o_title}</a></td>
+			<td>문의 타입 : </td>
 			<td>${vo.o2o_type}</td>
-			<td>${vo.the_time}</td>
-			<td>없음</td>
 		</tr>
-		</jl:forEach>
+		<tr>
+			<td>문의 작성 시간 : </td>
+			<td>${vo.the_time}</td>
+		</tr>
+		<tr>
+			<td>이메일 주소 : </td>
+			<td>${vo.o2o_email}</td>
+		</tr>
+		<tr>
+			<td>고객 전화 번호 : </td>
+			<td>${vo.o2o_phone}</td>
+		</tr>
+		<tr>
+			<td>문의 내용 : </td>
+			<td>${vo.o2o_content}</td>
+		</tr>
 	</table>
-
+	<br/>
+	<br/>
+	<br/>
+	
+	<form method="post" action="admin_o2oQnA_Email.do" name="frm">
+		<input type="hidden" name="o2o_no" value="${vo.o2o_no}">
+		
+		고객에게 문의 답변하기 : <br/>
+		
+		<textarea name="re_o2o_content" rows="10" cols="30"></textarea>
+		<br/>
+		<br/>
+		<button type="submit">답변 보내기</button>
+		<button id="cancel" type="submit">취소하기</button>
+	</form>
 </body>
 </html>

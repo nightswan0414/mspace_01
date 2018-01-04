@@ -43,14 +43,13 @@ taglib
 </head>
 <body>
 	<div class="jumbotron" style="background-color: orange">
-		<h1>FAQ 문의하기</h1>
+		<h1>1:1 문의하기</h1>
 	</div>
 	<form action="admin_o2oQnA_add.do" class="form-group" method="POST" name="frm">
 		제목 : <input type="text" name="o2o_title" size="30" /> <br>
 		이메일 : <input type="text" name="o2o_email" size="30" /> <br>
 		핸드폰번호 : <input type="text" name="o2o_phone" size="30" /><br>
 		서비스분류 : <select name="o2o_type">
-			<option value="선택">선택하세요</option>
 			<option value="회원">회원</option>
 			<option value="예약 및 결제">예약 및 결제</option>
 			<option value="취소 및 환불">취소 및 환불</option>
@@ -60,8 +59,6 @@ taglib
 		<br> <input class="btn btn-success" type="submit" value="문의하기" />
 		<input type="button"class="btn btn-success" id="cancel" value="취소하기"/>
 	</form>
-	
-	<a href="admin_o2oQnA_list.do">항목들 보기</a>
 
 </body>
 </html>

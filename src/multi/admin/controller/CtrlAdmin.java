@@ -21,11 +21,13 @@ import main.RequestParam;
 import multi.admin.dao.Admin_FaqDAO;
 import multi.admin.dao.Admin_HostDAO;
 import multi.admin.dao.Admin_NoticeDAO;
+import multi.admin.dao.Admin_SpaceDAO;
 import multi.admin.dao.Admin_UserDAO;
 import multi.admin.dao.Admin_o2oQnADAO;
 import multi.admin.vo.Admin_FaqVO;
 import multi.admin.vo.Admin_HostVO;
 import multi.admin.vo.Admin_NoticeVO;
+import multi.admin.vo.Admin_SpaceVO;
 import multi.admin.vo.Admin_UserVO;
 import multi.admin.vo.Admin_o2oQnAVO;
 
@@ -47,6 +49,8 @@ public class CtrlAdmin {
 	private Admin_UserDAO admin_UserDAO = null;
 	@Autowired @Qualifier("admin_HostDAO")
 	private Admin_HostDAO admin_HostDAO = null;
+	@Autowired @Qualifier("admin_SpaceDAO")
+	private Admin_SpaceDAO admin_SpaceDAO = null;
 	@Autowired @Qualifier("admin_NoticeDAO")
 	private Admin_NoticeDAO admin_NoticeDAO = null;
 	@Autowired @Qualifier("admin_FaqDAO")
@@ -182,6 +186,40 @@ public class CtrlAdmin {
 		
 		return mnv;
 	}
+	@RequestMapping("/admin_spaces.do")
+	public ModelAndView admin_space( @ModelAttribute Admin_SpaceVO svo, @RequestParam("value_check")String value_check  ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_spaces");
+		List<Admin_SpaceVO> ls = null;
+		if( value_check == null || value_check.equals("") ){
+			ls = admin_SpaceDAO.findAllPlacesCreatedDesc(svo);
+			value_check = "최신 순으로 정렬";
+		} else if ( value_check.equals("casc") ){
+			ls = admin_SpaceDAO.findAllPlacesCreatedAsc(svo);
+			value_check = "오래된 순으로 정렬";
+		} else if ( value_check.equals("cdesc") ){
+			ls = admin_SpaceDAO.findAllPlacesCreatedDesc(svo);
+			value_check = "최신 순으로 정렬";
+		} else if ( value_check.equals("pasc") ){
+			ls = admin_SpaceDAO.findAllPlacesPriceAsc(svo);
+			value_check = "싼 가격 순으로 정렬";
+		} else if ( value_check.equals("pdesc") ){
+			ls = admin_SpaceDAO.findAllPlacesPriceDesc(svo);
+			value_check = "비싼 가격 순으로 정렬";
+		}
+		mnv.addObject("ls", ls);
+		mnv.addObject("value_check", value_check);
+		
+		return mnv;
+	}
+	@RequestMapping("/admin_host_spaces.do")
+	public ModelAndView admin_host_space_rooms( @ModelAttribute Admin_SpaceVO svo, @ModelAttribute Admin_HostVO hvo  ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_host_spaces");
+		List<Admin_SpaceVO> ls = admin_SpaceDAO.findHostPlaces(svo);
+		mnv.addObject("ls", ls);
+		mnv.addObject("host_name", hvo.getHost_name());
+		// 판매자에서 공간 정보를 불러들일 때 호출
+		return mnv;
+	}
 	
 	// 모임 관리
 	@RequestMapping("/admin_gathering.do")
@@ -309,7 +347,6 @@ public class CtrlAdmin {
 	@RequestMapping("/admin_o2oQnA.do")
 	public ModelAndView admin_o2oQnA() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA");
-			
 		return mnv;
 	}
 	
@@ -318,15 +355,39 @@ public class CtrlAdmin {
 		ModelAndView mnv = new ModelAndView();
 		admin_o2oQnADAO.addAsking(ovo);
 		mnv.setViewName("redirect:/admin_o2oQnA.do");
-		
 		return mnv;
 	}
 	
 	@RequestMapping("/admin_o2oQnA_list.do")
-	public ModelAndView admin_o2oQnA_list( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+	public ModelAndView admin_o2oQnA_list() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list");
-		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAsk();
+		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAskWithNoRe();
 		mnv.addObject("ls", ls);
 		return mnv;
 	}
+	
+	@RequestMapping("/admin_o2oQnA_list_reply.do")
+	public ModelAndView admin_o2oQnA_list_reply() throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list_reply");
+		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAskWithRe();
+		mnv.addObject("ls", ls);
+		return mnv;
+	}
+	
+	@RequestMapping("/admin_o2oQnA_read.do")
+	public ModelAndView admin_o2oQnA_read( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_o2oQnA_read");
+		Admin_o2oQnAVO vo = admin_o2oQnADAO.check_oneAsking(ovo);
+		mnv.addObject("vo", vo);
+		return mnv;
+	}
+	
+	@RequestMapping("/admin_o2oQnA_Email.do")
+	public ModelAndView admin_o2oQnA_Email( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+		ModelAndView mnv = new ModelAndView();
+		i(ovo.getO2o_no());
+		i(ovo.getRe_o2o_content());
+		return mnv;
+	}
+	
 }

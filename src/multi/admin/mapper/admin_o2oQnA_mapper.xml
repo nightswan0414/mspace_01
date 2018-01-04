@@ -19,8 +19,8 @@
 		IN v_o2o_phone TEXT
 	)
 	BEGIN
-		INSERT INTO o2oQnA (o2o_title, o2o_content, o2o_email, o2o_type, o2o_phone ) VALUES( v_o2o_title, v_o2o_content, v_o2o_email,
- 	v_o2o_type, v_o2o_phone );
+		INSERT INTO o2oQnAT (o2o_title, o2o_content, o2o_email, o2o_type, o2o_phone, the_time ) VALUES( v_o2o_title, v_o2o_content, v_o2o_email,
+ 	v_o2o_type, v_o2o_phone, NOW() );
 	END$$
 	DELIMITER ;
 	-->
@@ -38,16 +38,15 @@
 	</insert>
 	
 	<!--
-	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_findAll;
+	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_findAll_noRe;
 	DELIMITER $$
-	CREATE PROCEDURE p_admin_o2oQnA_findAll()
+	CREATE PROCEDURE p_admin_o2oQnA_findAll_noRe()
 	BEGIN
-		SELECT * FROM o2oQnAT;
+		SELECT * FROM o2oQnAT WHERE re_o2o_content IS NULL ORDER BY o2o_no DESC;
 	END$$
 	DELIMITER ;
-	CALL p_o2oQnA_findAll();
 	-->
-	<resultMap id="RM_p_admin_o2oQnA_findAll" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<resultMap id="RM_p_admin_o2oQnA_findAll_noRe" type="multi.admin.vo.Admin_o2oQnAVO" >
 		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
 		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
 		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
@@ -57,8 +56,63 @@
 		<result property="the_time" column="the_time" jdbcType="VARCHAR" />
 		<result property="re_o2o_content" column="re_o2o_content" jdbcType="VARCHAR" />
 	</resultMap>
-	<select id="p_admin_o2oQnA_findAll" statementType="CALLABLE" resultMap="RM_p_admin_o2oQnA_findAll">
-		{call p_admin_o2oQnA_findAll()}
+	<select id="p_admin_o2oQnA_findAll_noRe" statementType="CALLABLE" 
+		resultMap="RM_p_admin_o2oQnA_findAll_noRe">
+		{call p_admin_o2oQnA_findAll_noRe()}
+	</select>
+	
+	
+	<!--
+	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_findAll_Re;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_o2oQnA_findAll_Re()
+	BEGIN
+		SELECT * FROM o2oQnAT WHERE re_o2o_content IS NOT NULL ORDER BY o2o_no DESC;
+	END$$
+	DELIMITER ;
+	-->
+	<resultMap id="RM_p_admin_o2oQnA_findAll_Re" type="multi.admin.vo.Admin_o2oQnAVO" >
+		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
+		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
+		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
+		<result property="o2o_email" column="o2o_email" jdbcType="VARCHAR" />
+		<result property="o2o_type" column="o2o_type" jdbcType="VARCHAR" />
+		<result property="o2o_phone" column="o2o_phone" jdbcType="VARCHAR" />
+		<result property="the_time" column="the_time" jdbcType="VARCHAR" />
+		<result property="re_o2o_content" column="re_o2o_content" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_admin_o2oQnA_findAll_Re" statementType="CALLABLE" resultMap="RM_p_admin_o2oQnA_findAll_Re">
+		{call p_admin_o2oQnA_findAll_Re()}
+	</select>
+	
+	<!--
+	DROP PROCEDURE IF EXISTS p_admin_o2oQnA_checkOne;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_o2oQnA_checkOne(
+		IN v_o2o_no INT
+	)
+	BEGIN
+		SELECT * FROM o2oQnAT WHERE o2o_no = v_o2o_no;
+	END$$
+	DELIMITER ;
+	-->
+	<parameterMap id="PM_p_admin_o2oQnA_checkOne" type="multi.admin.vo.Admin_o2oQnAVO">
+		<parameter property="o2o_no" mode="IN" jdbcType="INTEGER" />
+	</parameterMap>
+	<resultMap id="RM_p_admin_o2oQnA_checkOne" type="multi.admin.vo.Admin_o2oQnAVO" >
+		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
+		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
+		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
+		<result property="o2o_email" column="o2o_email" jdbcType="VARCHAR" />
+		<result property="o2o_type" column="o2o_type" jdbcType="VARCHAR" />
+		<result property="o2o_phone" column="o2o_phone" jdbcType="VARCHAR" />
+		<result property="the_time" column="the_time" jdbcType="VARCHAR" />
+		<result property="re_o2o_content" column="re_o2o_content" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="p_admin_o2oQnA_checkOne" statementType="CALLABLE" 
+		resultMap="RM_p_admin_o2oQnA_checkOne"
+		parameterMap="PM_p_admin_o2oQnA_checkOne">
+		{call p_admin_o2oQnA_checkOne(?)}
 	</select>
 </mapper>
 

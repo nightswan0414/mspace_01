@@ -97,6 +97,15 @@ aside#left {
 #admin_one_one {
 	background: #FF7000 !important;
 }
+#one_one_request {
+	background: #FF7000 !important;
+}
+#one_one_un_reple {
+	background: #FF7000 !important;
+}
+#one_one_reple_done {
+	background: #FF7000 !important;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -116,7 +125,9 @@ aside#left {
 	$("#admin_announcement").hide();
 	$("#admin_event").hide();
 	$("#admin_faq").hide();
-	$("#admin_one_one").hide();
+	$("#one_one_request").hide();
+	$("#one_one_un_reple").hide();
+	$("#one_one_reple_done").hide();
 	
 	$("#user").on("click",function(){
 		$("#user_manage").show();
@@ -130,7 +141,9 @@ aside#left {
 		$("#admin_announcement").hide();
 		$("#admin_event").hide();
 		$("#admin_faq").hide();
-		$("#admin_one_one").hide();
+		$("#one_one_request").hide();
+		$("#one_one_un_reple").hide();
+		$("#one_one_reple_done").hide();
 	});
 	
 	$("#host").on("click",function(){
@@ -145,7 +158,9 @@ aside#left {
 		$("#admin_announcement").hide();
 		$("#admin_event").hide();
 		$("#admin_faq").hide();
-		$("#admin_one_one").hide();
+		$("#one_one_request").hide();
+		$("#one_one_un_reple").hide();
+		$("#one_one_reple_done").hide();
 	});
 	
 	$("#community").on("click",function(){
@@ -160,14 +175,15 @@ aside#left {
 		$("#admin_announcement").hide();
 		$("#admin_event").hide();
 		$("#admin_faq").hide();
-		$("#admin_one_one").hide();
+		$("#one_one_request").hide();
+		$("#one_one_un_reple").hide();
+		$("#one_one_reple_done").hide();
 	});
 	
 	$("#admin_user").on("click",function(){
 		$("#admin_announcement").show();
 		$("#admin_event").show();
 		$("#admin_faq").show();
-		$("#admin_one_one").show();
 		
 		$("#user_manage").hide();
 		$("#user_stastic").hide();
@@ -176,8 +192,27 @@ aside#left {
 		$("#community_free").hide();
 		$("#community_review").hide();
 		$("#community_question").hide();
+		$("#one_one_request").hide();
+		$("#one_one_un_reple").hide();
+		$("#one_one_reple_done").hide();
 	});
 	
+	$("#one_one").on("click",function(){
+		$("#one_one_request").show();
+		$("#one_one_un_reple").show();
+		$("#one_one_reple_done").show();
+		
+		$("#user_manage").hide();
+		$("#user_stastic").hide();
+		$("#host_manage").hide();
+		$("#host_requests").hide();
+		$("#community_free").hide();
+		$("#community_review").hide();
+		$("#community_question").hide();
+		$("#admin_announcement").hide();
+		$("#admin_event").hide();
+		$("#admin_faq").hide();
+	});
  });
 </script>
 </head>
@@ -194,7 +229,7 @@ aside#left {
 			<li id="host_manage"><a target="iframe1" href="admin_hosts.do">판매자 회원 관리</a></li>
 			<li id="host_requests"><a target="iframe1" href="admin_host_request.do">신청리스트</a></li>
 			
-			<li><a target="iframe1" href="admin_space.do">물품 관리</a></li>
+			<li><a target="iframe1" href="admin_spaces.do">물품 관리</a></li>
 			
 			<li><a target="iframe1" href="admin_gathering.do">모임 관리</a></li>
 			
@@ -207,7 +242,11 @@ aside#left {
 			<li id="admin_announcement"><a target="iframe1" href="admin_notice_list.do">공지 관리</a></li>
 			<li id="admin_event"><a target="iframe1" href="admin_event.do">이벤트 관리</a></li>
 			<li id="admin_faq"><a target="iframe1" href="admin_faq.do">FAQ 관리</a></li>
-			<li id="admin_one_one"><a target="iframe1" href="admin_o2oQnA.do">1:1 관리</a></li>	
+			
+			<li id="one_one">1:1 관리</li>
+			<li id="one_one_request"><a target="iframe1" href="admin_o2oQnA.do">1:1 문의 하기(테스트 용)</a></li>
+			<li id="one_one_un_reple"><a target="iframe1" href="admin_o2oQnA_list.do">문의 미 답변 관리</a></li>
+			<li id="one_one_reple_done"><a target="iframe1" href="admin_o2oQnA_list_reply.do">문의 답변 완료 보기</a></li>
 		</ul>
 	</aside>
 	

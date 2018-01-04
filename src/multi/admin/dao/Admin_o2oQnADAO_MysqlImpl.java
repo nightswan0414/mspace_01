@@ -13,10 +13,15 @@ public class Admin_o2oQnADAO_MysqlImpl implements Admin_o2oQnADAO{
 	private SqlSession sqlSession = null;
 	
 	@Override
-	public List<Admin_o2oQnAVO> findAllAsk() throws Exception {
-		return sqlSession.selectList("admin_o2oQnA.p_admin_o2oQnA_findAll");
+	public List<Admin_o2oQnAVO> findAllAskWithNoRe() throws Exception {
+		return sqlSession.selectList("admin_o2oQnA.p_admin_o2oQnA_findAll_noRe");
 	}
 
+	@Override
+	public List<Admin_o2oQnAVO> findAllAskWithRe() throws Exception {
+		return sqlSession.selectList("admin_o2oQnA.p_admin_o2oQnA_findAll_Re");
+	}
+	
 	@Override
 	public int addAsking( Admin_o2oQnAVO ovo ) throws Exception {
 		return sqlSession.insert("admin_o2oQnA.p_admin_o2oQnA_add", ovo );
@@ -24,8 +29,9 @@ public class Admin_o2oQnADAO_MysqlImpl implements Admin_o2oQnADAO{
 
 	@Override
 	public Admin_o2oQnAVO check_oneAsking(Admin_o2oQnAVO ovo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("admin_o2oQnA.p_admin_o2oQnA_checkOne",ovo);
 	}
+
+
 
 }

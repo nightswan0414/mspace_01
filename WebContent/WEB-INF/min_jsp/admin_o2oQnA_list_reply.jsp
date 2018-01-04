@@ -47,17 +47,21 @@ taglib
 	</div>
 	<table border="1">
 		<tr>
-			<td>제목</td>
-			<td>문의 타입</td>
-			<td>문의 시간</td>
-			<td>답변 내용</td>
+			<td>문의 제목</td>
+			<td>고객 이메일</td>
+			<td>고객 전화번호</td>
+			<td>고객 문의 타입</td>
+			<td>고객 문의 시간</td>
+			<td>운영진 답변 내용</td>
 		</tr>
 		<jl:forEach var="vo" items="${ls}">
 		<tr>
-			<td><a href="admin_o2oQnA_read.do?o2o_no=${vo.o2o_no}">${vo.o2o_title}</a></td>
+			<td>${vo.o2o_title}</td>
+			<td>${vo.o2o_email}</td>
+			<td>${vo.o2o_phone}</td>
 			<td>${vo.o2o_type}</td>
 			<td>${vo.the_time}</td>
-			<td>없음</td>
+			<td>${vo.re_o2o_content}</td>
 		</tr>
 		</jl:forEach>
 	</table>

@@ -8,7 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style type="text/css">
-
+table {
+	text-align: center;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -26,6 +28,7 @@
 		<td>호스트 이름</td>
 		<td>호스트 계좌 번호</td>
 		<td>주소</td>
+		<td>판매자 공간</td>
 		<td>사용자로 강등</td>
 		<td>탈퇴 시키기</td>
 	</tr>
@@ -36,6 +39,7 @@
 			<td>${vo.host_name}</td>
 			<td>${vo.host_account}</td>
 			<td>${vo.zipcode}</td>
+			<td><a href="admin_host_spaces.do?crn=${vo.crn}&host_name=${vo.host_name}">판매자 공간 확인 하기</a></td>
 			<td><a href="admin_host_user_downgrade.do?crn=${vo.crn}&user_id=${vo.user_id}">강등시키기</a></td>
 			<td><a href="admin_host_user_remove.do?crn=${vo.crn}&user_id=${vo.user_id}">탈퇴시키기</a></td>
 		</tr>

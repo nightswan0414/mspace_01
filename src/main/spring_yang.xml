@@ -36,16 +36,17 @@
 	
 	<!--
 	여기다 자기꺼 추가해주세요!!!!!!
+	<bean class="multi.temp.controller.CtrlSh"/>
 	-->
 
 	<bean class="multi.admin.controller.CtrlAdmin"/>
 	<bean id="admin_UserDAO" class="multi.admin.dao.Admin_UserDAO_MysqlImpl" />
 	<bean id="admin_HostDAO" class="multi.admin.dao.Admin_HostDAO_MysqlImpl" />
-	
 	<bean id="admin_NoticeDAO" class="multi.admin.dao.Admin_NoticeDAO_MysqlImpl"/>
 	<bean id="admin_FaqDAO" class="multi.admin.dao.Admin_FaqDAO_MysqlImpl"/>
 	<bean id="admin_o2oQnADAO" class="multi.admin.dao.Admin_o2oQnADAO_MysqlImpl"/>
-		
+	
+	<bean id="admin_SpaceDAO" class="multi.admin.dao.Admin_SpaceDAO_MysqlImpl"/>
 </beans>
 
 
