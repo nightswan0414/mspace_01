@@ -26,8 +26,8 @@
 	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
 	<table>
 		<tr>
-			<td>거절 사유 작성 : </td>
-			<td><textarea rows="20" cols="20" name="msg_content"></textarea></td>
+			<td>참고 사항(거절 사항) 작성 : </td>
+			<td><textarea rows="20" cols="20" name="etc">${vo.etc}</textarea></td>
 		</tr>
 	</table>
 		

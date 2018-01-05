@@ -37,7 +37,6 @@
 	</tr>
 </table>
 <br/>
-${vo.zipcode}
 <form method="post" action="admin_host_user_accept.do">
 	<input type="hidden" name="crn" value="${vo.crn}"></input>
 	<input type="hidden" name="user_id" value="${vo.user_id}"></input>
@@ -46,10 +45,18 @@ ${vo.zipcode}
 	<input type="hidden" name="zipcode" value="${vo.zipcode}"></input>
 	<button type="submit">판매자 등록 하기</button>
 </form>
+<br/>
 <form method="post" action="admin_host_user_refuse_write.do">
 	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
-	<button type="submit">거절 사유 작성 하기</button>
+	<input type="hidden" name="etc" value="${vo.etc}"></input>
+	<button type="submit">참고 사항(거절 사항) 작성 하기</button>
 </form>
+<br/>
+<form method="post" action="admin_host_user_remove_request.do">
+	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
+	<button type="submit">판매자 신청 사항 삭제</button>
+</form>
+<br/>
 <form method="post" action="admin_host_request.do">
 	<button type="submit">취소 하기</button>
 </form>

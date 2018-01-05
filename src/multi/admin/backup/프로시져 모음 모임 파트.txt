@@ -60,3 +60,34 @@ INSERT INTO ClubT (user_id, club_name, club_title, club_content, club_thumb_img,
 
 ################################################################
 
+	DROP PROCEDURE IF EXISTS p_admin_club_Remove;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_club_Remove(
+		IN v_club_no INT
+	)
+	BEGIN
+		DECLARE exit handler FOR SQLEXCEPTION
+		BEGIN
+			ROLLBACK;
+			SIGNAL SQLSTATE '45000';
+		END;
+		START TRANSACTION;
+			DELETE FROM ClubT WHERE club_no = v_club_no;
+			DELETE FROM BookingT WHERE club_no = v_club_no;
+			DELETE FROM User_ClubT WHERE club_no = v_club_no;
+			DELETE FROM Club_NoticeT WHERE club_no = v_club_no;
+			DELETE FROM Club_applyT WHERE club_no = v_club_no;
+		COMMIT;
+	END$$
+	DELIMITER ;
+
+################################################################
+	DROP PROCEDURE IF EXISTS p_admin_club_FindSpecificClub;
+	DELIMITER $$
+	CREATE PROCEDURE p_admin_club_FindSpecificClub(
+		IN v_club_no INT
+	)
+	BEGIN
+		SELECT * FROM ClubT WHERE club_no = v_club_no;
+	END$$
+	DELIMITER ;

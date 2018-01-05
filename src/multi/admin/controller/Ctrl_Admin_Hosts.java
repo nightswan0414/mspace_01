@@ -76,24 +76,25 @@ public class Ctrl_Admin_Hosts {
 	@RequestMapping("/admin_host_user_refuse_write.do")
 	public ModelAndView admin_host_user_refuse_write( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_host_user_refuse_write");
-		i("admin_host_user_refuse_write.do");
-		i(hvo.getHost_apply_no());
-
+		mnv.addObject("vo", hvo);
 		return mnv;
 	}
 	
 	@RequestMapping("/admin_host_user_refuse.do")
 	public ModelAndView admin_host_user_refuse( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
-		i("admin_host_user_refuse.do");
-		i(hvo.getHost_apply_no());
+		admin_HostDAO.host_user_refuse(hvo);
 		mnv.setViewName("redirect:/admin_host_request.do");
 		return mnv;
 	}
-	
-	
-	/////////////
-	
+	@RequestMapping("/admin_host_user_remove_request.do")
+	public ModelAndView admin_host_user_remove_request( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
+		ModelAndView mnv = new ModelAndView();
+		i(hvo.getHost_apply_no());
+		admin_HostDAO.host_user_remove_request(hvo);
+		mnv.setViewName("redirect:/admin_host_request.do");
+		return mnv;
+	}
 	@RequestMapping("/admin_host_user_downgrade.do")
 	public ModelAndView admin_host_user_downgrade( @ModelAttribute Admin_HostVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();

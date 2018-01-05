@@ -23,6 +23,7 @@
 		<td>유저 ID</td>
 		<td>호스트 이름</td>
 		<td>신청 정보 확인하기</td>
+		<td>참고사항</td>
 	</tr>
 	
 	<jl:forEach var="vo" items="${ls}">
@@ -30,6 +31,7 @@
 			<td><a href="admin_host_user_check.do?user_id=${vo.user_id}">${vo.user_id}</a></td>
 			<td>${vo.host_name}</td>
 			<td><a href="admin_host_request_view.do?crn=${vo.crn}">정보 확인 하기</a></td>
+			<td>${vo.etc}</td>
 		</tr>
 	</jl:forEach>
 </table>

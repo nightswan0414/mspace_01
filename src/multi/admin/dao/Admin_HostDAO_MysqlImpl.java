@@ -34,10 +34,14 @@ public class Admin_HostDAO_MysqlImpl implements Admin_HostDAO {
 		return sqlSession.update("admin_host.p_admin_host_user_accept",hvo);
 	}
 	
-	
 	@Override
 	public int host_user_refuse(Admin_HostApplyVO hvo) throws Exception {
 		return sqlSession.delete("admin_host.p_admin_host_user_refuse",hvo);
+	}
+	
+	@Override
+	public int host_user_remove_request(Admin_HostApplyVO hvo) throws Exception {
+		return sqlSession.delete("admin_host.p_admin_host_user_remove_request",hvo);
 	}
 
 	@Override
@@ -59,6 +63,7 @@ public class Admin_HostDAO_MysqlImpl implements Admin_HostDAO {
 	public int host_user_remove(Admin_HostVO hvo) throws Exception {
 		return sqlSession.delete("admin_host.p_admin_host_user_remove",hvo);
 	}
+
 	
 	
 

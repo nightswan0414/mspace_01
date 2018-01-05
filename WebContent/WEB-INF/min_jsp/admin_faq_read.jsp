@@ -19,6 +19,7 @@ $(document).ready(function(){
 		document.frm.action="admin_faq.do";
 		document.frm.submit();
 	});
+
 });
 </script>
 </head>

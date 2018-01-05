@@ -76,7 +76,8 @@ public class BeanUtil
 			pn.equals("user_id") ||
 			pn.equals("host_name") ||
 			pn.equals("host_account") ||
-			pn.equals("zipcode")
+			pn.equals("zipcode") ||
+			pn.equals("etc")
 			);
 	}
 	

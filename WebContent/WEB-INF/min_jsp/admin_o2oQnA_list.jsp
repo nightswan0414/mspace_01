@@ -37,6 +37,11 @@ taglib
 			document.frm.action="admin_o2oQnA.do";
 			document.frm.submit();
 		});
+		$("#cancels").on("click",function(){
+			document.frm.method="POST";
+			document.frm.action="admin_o2oQnA.do";
+			document.frm.submit();
+		});
 	});
 
 </script>
