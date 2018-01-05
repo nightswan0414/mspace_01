@@ -37,19 +37,12 @@ import multi.admin.vo.Admin_o2oQnAVO;
 
 @Controller
 public class Ctrl_Admin_Spaces {
-	@Autowired @Qualifier("admin_UserDAO")
-	private Admin_UserDAO admin_UserDAO = null;
-	@Autowired @Qualifier("admin_HostDAO")
-	private Admin_HostDAO admin_HostDAO = null;
 	@Autowired @Qualifier("admin_SpaceDAO")
 	private Admin_SpaceDAO admin_SpaceDAO = null;
-	@Autowired @Qualifier("admin_NoticeDAO")
-	private Admin_NoticeDAO admin_NoticeDAO = null;
-	@Autowired @Qualifier("admin_FaqDAO")
-	private Admin_FaqDAO admin_FaqDAO = null;
-	@Autowired @Qualifier("admin_o2oQnADAO")
-	private Admin_o2oQnADAO admin_o2oQnADAO = null;
 	
+	@Autowired @Qualifier("admin_HostDAO")
+	private Admin_HostDAO admin_HostDAO = null;
+
 	// 물품 관리
 	@RequestMapping("/admin_space.do")
 	public ModelAndView admin_space() throws Exception {
@@ -88,7 +81,6 @@ public class Ctrl_Admin_Spaces {
 		List<Admin_SpaceVO> ls = admin_SpaceDAO.findHostPlaces(svo);
 		mnv.addObject("ls", ls);
 		mnv.addObject("host_name", hvo.getHost_name());
-		// 판매자에서 공간 정보를 불러들일 때 호출
 		return mnv;
 	}
 	

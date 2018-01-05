@@ -231,7 +231,7 @@ aside#left {
 			
 			<li><a target="iframe1" href="admin_spaces.do">물품 관리</a></li>
 			
-			<li><a target="iframe1" href="admin_gathering.do">모임 관리</a></li>
+			<li><a target="iframe1" href="admin_clubs.do">모임 관리</a></li>
 			
 			<li id="community">커뮤니티 관리</li>
 			<li id="community_free"><a target="iframe1" href="#">자유 게시판 관리</a></li>

@@ -25,6 +25,7 @@
 		<td>판매자 이름</td>
 		<td>판매자 계좌</td>
 		<td>주소</td>
+		<td>참고사항</td>
 	</tr>
 	<tr>
 		<td>${vo.crn}</td>
@@ -32,19 +33,25 @@
 		<td>${vo.host_name}</td>
 		<td>${vo.host_account}</td>
 		<td>${vo.zipcode}</td>
+		<td>${vo.etc}</td>
 	</tr>
 </table>
-
+<br/>
+${vo.zipcode}
 <form method="post" action="admin_host_user_accept.do">
-	<input type="hidden" name="user_id" value="${vo.user_id}"></input>
-	<button type="submit">판매자 등록</button>
-</form>
-<form method="post" action="admin_host_user_refuse.do">
 	<input type="hidden" name="crn" value="${vo.crn}"></input>
-	<button type="submit">거절</button>
+	<input type="hidden" name="user_id" value="${vo.user_id}"></input>
+	<input type="hidden" name="host_name" value="${vo.host_name}"></input>
+	<input type="hidden" name="host_account" value="${vo.host_account}"></input>
+	<input type="hidden" name="zipcode" value="${vo.zipcode}"></input>
+	<button type="submit">판매자 등록 하기</button>
+</form>
+<form method="post" action="admin_host_user_refuse_write.do">
+	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
+	<button type="submit">거절 사유 작성 하기</button>
 </form>
 <form method="post" action="admin_host_request.do">
-	<button type="submit">취소</button>
+	<button type="submit">취소 하기</button>
 </form>
 
 </body>

@@ -70,7 +70,13 @@ public class BeanUtil
 			pn.equals("o2o_title") ||
 			pn.equals("o2o_content") || 
 			pn.equals("o2o_type") || 
-			pn.equals("re_o2o_content")
+			pn.equals("re_o2o_content") || 
+			pn.equals("msg_content") ||
+			pn.equals("crn") ||
+			pn.equals("user_id") ||
+			pn.equals("host_name") ||
+			pn.equals("host_account") ||
+			pn.equals("zipcode")
 			);
 	}
 	

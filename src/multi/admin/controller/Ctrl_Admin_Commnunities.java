@@ -45,18 +45,6 @@ FAQ 包府
 
 @Controller
 public class Ctrl_Admin_Commnunities {
-	@Autowired @Qualifier("admin_UserDAO")
-	private Admin_UserDAO admin_UserDAO = null;
-	@Autowired @Qualifier("admin_HostDAO")
-	private Admin_HostDAO admin_HostDAO = null;
-	@Autowired @Qualifier("admin_SpaceDAO")
-	private Admin_SpaceDAO admin_SpaceDAO = null;
-	@Autowired @Qualifier("admin_NoticeDAO")
-	private Admin_NoticeDAO admin_NoticeDAO = null;
-	@Autowired @Qualifier("admin_FaqDAO")
-	private Admin_FaqDAO admin_FaqDAO = null;
-	@Autowired @Qualifier("admin_o2oQnADAO")
-	private Admin_o2oQnADAO admin_o2oQnADAO = null;
 	
 	// 目孤聪萍 包府
 	@RequestMapping("/admin_community.do")

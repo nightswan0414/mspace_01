@@ -9,7 +9,6 @@
 	</select>
 
 	<!-- 
-	프로시져 pfindAllTexts 김소영
 	DROP PROCEDURE IF EXISTS p_admin_faq_FindAllTexts;
 	DELIMITER $$
 	CREATE PROCEDURE p_admin_faq_FindAllTexts()

@@ -5,7 +5,7 @@ public class Admin_SpaceVO {
 	
 	public Admin_SpaceVO(Integer space_no, String crn, String space_title, String space_content, String space_thumb_img,
 			String open_time, String close_time, Integer price, Integer max_people, Integer min_people,
-			String space_call, String zipcode, Integer s_category_no, Integer l_category_no, String the_time) {
+			String space_call, String zipcode, Integer c_category_no, Integer l_category_no, String the_time) {
 		this.space_no = space_no;
 		this.crn = crn;
 		this.space_title = space_title;
@@ -18,7 +18,7 @@ public class Admin_SpaceVO {
 		this.min_people = min_people;
 		this.space_call = space_call;
 		this.zipcode = zipcode;
-		this.s_category_no = s_category_no;
+		this.c_category_no = c_category_no;
 		this.l_category_no = l_category_no;
 		this.the_time = the_time;
 	}
@@ -94,11 +94,11 @@ public class Admin_SpaceVO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Integer getS_category_no() {
-		return s_category_no;
+	public Integer getc_category_no() {
+		return c_category_no;
 	}
-	public void setS_category_no(Integer s_category_no) {
-		this.s_category_no = s_category_no;
+	public void setc_category_no(Integer c_category_no) {
+		this.c_category_no = c_category_no;
 	}
 	public Integer getL_category_no() {
 		return l_category_no;
@@ -125,7 +125,7 @@ public class Admin_SpaceVO {
 	private Integer min_people = null;
 	private String space_call = null;
 	private String zipcode = null;
-	private Integer s_category_no = null;
+	private Integer c_category_no = null;
 	private Integer l_category_no = null;
 	private String the_time = null;
 }

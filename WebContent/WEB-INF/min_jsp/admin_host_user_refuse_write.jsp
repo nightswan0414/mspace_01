@@ -13,10 +13,27 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="common.js" type="text/javascript"></script>
 <script>
-
+	$("document").ready(function(){
+		$("#can").on("click",function(){
+			document.frm.action="admin_host_request.do";
+			document.frm.submit();
+		});
+	});
 </script>
 </head>
 <body>
-manage_gathering.jsp
+<form action="admin_host_user_refuse.do" method="get" name="frm">
+	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
+	<table>
+		<tr>
+			<td>거절 사유 작성 : </td>
+			<td><textarea rows="20" cols="20" name="msg_content"></textarea></td>
+		</tr>
+	</table>
+		
+	<button type="submit">전송 하기</button> &nbsp;&nbsp;&nbsp;
+	<button id="can" type="submit">취소 하기</button>
+</form>
+
 </body>
 </html>

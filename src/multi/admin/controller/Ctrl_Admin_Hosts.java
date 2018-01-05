@@ -25,6 +25,7 @@ import multi.admin.dao.Admin_SpaceDAO;
 import multi.admin.dao.Admin_UserDAO;
 import multi.admin.dao.Admin_o2oQnADAO;
 import multi.admin.vo.Admin_FaqVO;
+import multi.admin.vo.Admin_HostApplyVO;
 import multi.admin.vo.Admin_HostVO;
 import multi.admin.vo.Admin_NoticeVO;
 import multi.admin.vo.Admin_SpaceVO;
@@ -37,19 +38,8 @@ import multi.admin.vo.Admin_o2oQnAVO;
 
 @Controller
 public class Ctrl_Admin_Hosts {
-	@Autowired @Qualifier("admin_UserDAO")
-	private Admin_UserDAO admin_UserDAO = null;
 	@Autowired @Qualifier("admin_HostDAO")
 	private Admin_HostDAO admin_HostDAO = null;
-	@Autowired @Qualifier("admin_SpaceDAO")
-	private Admin_SpaceDAO admin_SpaceDAO = null;
-	@Autowired @Qualifier("admin_NoticeDAO")
-	private Admin_NoticeDAO admin_NoticeDAO = null;
-	@Autowired @Qualifier("admin_FaqDAO")
-	private Admin_FaqDAO admin_FaqDAO = null;
-	@Autowired @Qualifier("admin_o2oQnADAO")
-	private Admin_o2oQnADAO admin_o2oQnADAO = null;
-	
 	//판매자 관리
 	@RequestMapping("/admin_hosts.do")
 	public ModelAndView admin_hosts() throws Exception {
@@ -62,42 +52,47 @@ public class Ctrl_Admin_Hosts {
 	@RequestMapping("/admin_host_request.do")
 	public ModelAndView admin_host_request() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_host_request");
-		List<Admin_HostVO> ls = admin_HostDAO.host_request_findAll();
+		List<Admin_HostApplyVO> ls = admin_HostDAO.host_request_findAll();
 		mnv.addObject("ls", ls);
 		return mnv;
 	}
 	
 	@RequestMapping("/admin_host_request_view.do")
-	public ModelAndView admin_host_request_view( @ModelAttribute Admin_HostVO hvo ) throws Exception {
+	public ModelAndView admin_host_request_view( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_host_request_view");
-		Admin_HostVO vo = admin_HostDAO.host_check(hvo);
-		mnv.addObject("vo", vo);
-		return mnv;
-	}
-	
-	@RequestMapping("/admin_host_user_check.do")
-	public ModelAndView admin_host_user_check( @ModelAttribute Admin_HostVO hvo ) throws Exception {
-		ModelAndView mnv = new ModelAndView("admin_host_user_check");
-		Admin_UserVO vo = admin_HostDAO.host_user_check(hvo);
+		Admin_HostApplyVO vo = admin_HostDAO.host_check(hvo);
 		mnv.addObject("vo", vo);
 		return mnv;
 	}
 	
 	@RequestMapping("/admin_host_user_accept.do")
-	public ModelAndView admin_host_user_accept( @ModelAttribute Admin_HostVO hvo ) throws Exception {
+	public ModelAndView admin_host_user_accept( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
 		admin_HostDAO.host_user_accept(hvo);
 		mnv.setViewName("redirect:/admin_host_request.do");
 		return mnv;
 	}
 	
+	@RequestMapping("/admin_host_user_refuse_write.do")
+	public ModelAndView admin_host_user_refuse_write( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_host_user_refuse_write");
+		i("admin_host_user_refuse_write.do");
+		i(hvo.getHost_apply_no());
+
+		return mnv;
+	}
+	
 	@RequestMapping("/admin_host_user_refuse.do")
-	public ModelAndView admin_host_user_refuse( @ModelAttribute Admin_HostVO hvo ) throws Exception {
+	public ModelAndView admin_host_user_refuse( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
-		admin_HostDAO.host_user_refuse(hvo);
+		i("admin_host_user_refuse.do");
+		i(hvo.getHost_apply_no());
 		mnv.setViewName("redirect:/admin_host_request.do");
 		return mnv;
 	}
+	
+	
+	/////////////
 	
 	@RequestMapping("/admin_host_user_downgrade.do")
 	public ModelAndView admin_host_user_downgrade( @ModelAttribute Admin_HostVO hvo ) throws Exception {
@@ -112,6 +107,16 @@ public class Ctrl_Admin_Hosts {
 		ModelAndView mnv = new ModelAndView();
 		admin_HostDAO.host_user_remove(hvo);
 		mnv.setViewName("redirect:/admin_hosts.do");
+		return mnv;
+	}
+	
+
+	
+	@RequestMapping("/admin_host_user_check.do")
+	public ModelAndView admin_host_user_check( @ModelAttribute Admin_HostVO hvo ) throws Exception {
+		ModelAndView mnv = new ModelAndView("admin_host_user_check");
+		Admin_UserVO vo = admin_HostDAO.host_user_check(hvo);
+		mnv.addObject("vo", vo);
 		return mnv;
 	}
 	

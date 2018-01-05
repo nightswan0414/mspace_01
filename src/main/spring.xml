@@ -50,6 +50,7 @@
 	<bean class="multi.admin.controller.Ctrl_Admin_Events"/>
 	<bean class="multi.admin.controller.Ctrl_Admin_FAQ"/>
 	<bean class="multi.admin.controller.Ctrl_Admin_o2oQnA"/>
+	<bean class="multi.admin.controller.Ctrl_Admin_Clubs"/>
 	
 	<bean id="admin_UserDAO" class="multi.admin.dao.Admin_UserDAO_MysqlImpl" />
 	<bean id="admin_HostDAO" class="multi.admin.dao.Admin_HostDAO_MysqlImpl" />
@@ -57,6 +58,7 @@
 	<bean id="admin_FaqDAO" class="multi.admin.dao.Admin_FaqDAO_MysqlImpl"/>
 	<bean id="admin_o2oQnADAO" class="multi.admin.dao.Admin_o2oQnADAO_MysqlImpl"/>
 	<bean id="admin_SpaceDAO" class="multi.admin.dao.Admin_SpaceDAO_MysqlImpl"/>
+	<bean id="admin_ClubDAO" class="multi.admin.dao.Admin_ClubDAO_MysqlImpl"/>
 </beans>
 
 
