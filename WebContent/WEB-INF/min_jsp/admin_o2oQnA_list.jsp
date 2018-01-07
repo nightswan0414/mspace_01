@@ -53,6 +53,7 @@ taglib
 	<table border="1">
 		<tr>
 			<td>제목</td>
+			<td>고객님 이메일</td>
 			<td>문의 타입</td>
 			<td>문의 시간</td>
 			<td>답변 내용</td>
@@ -60,6 +61,7 @@ taglib
 		<jl:forEach var="vo" items="${ls}">
 		<tr>
 			<td><a href="admin_o2oQnA_read.do?o2o_no=${vo.o2o_no}">${vo.o2o_title}</a></td>
+			<td>${vo.o2o_email}</td>
 			<td>${vo.o2o_type}</td>
 			<td>${vo.the_time}</td>
 			<td>없음</td>

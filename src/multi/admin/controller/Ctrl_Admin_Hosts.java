@@ -90,7 +90,6 @@ public class Ctrl_Admin_Hosts {
 	@RequestMapping("/admin_host_user_remove_request.do")
 	public ModelAndView admin_host_user_remove_request( @ModelAttribute Admin_HostApplyVO hvo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
-		i(hvo.getHost_apply_no());
 		admin_HostDAO.host_user_remove_request(hvo);
 		mnv.setViewName("redirect:/admin_host_request.do");
 		return mnv;

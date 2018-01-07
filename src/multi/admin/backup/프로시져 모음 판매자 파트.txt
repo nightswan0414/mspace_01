@@ -79,6 +79,7 @@ INSERT INTO HostApplyT Values(default,'444-44-44444', 'user', 'ÀÌ¾çÀç', 'Korean 
 		DELETE FROM HostApplyT WHERE host_apply_no = v_host_apply_no;
 	END$$
 	DELIMITER ;
+	
 ################################################################	
 	
 	DROP PROCEDURE IF EXISTS p_admin_host_user_downgrade;

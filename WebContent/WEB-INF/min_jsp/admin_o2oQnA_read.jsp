@@ -76,10 +76,16 @@ taglib
 	
 	<form method="post" action="admin_o2oQnA_Email.do" name="frm">
 		<input type="hidden" name="o2o_no" value="${vo.o2o_no}">
+		<input type="hidden" name="o2o_title" value="${o2o_title}">
+		<input type="hidden" name="o2o_type" value="${vo.o2o_type}">
+		<input type="hidden" name="the_time" value="${vo.the_time}">
+		<input type="hidden" name="o2o_email" value="${vo.o2o_email}">
+		<input type="hidden" name="o2o_phone" value="${vo.o2o_phone}">
+		<input type="hidden" name="o2o_content" value="${vo.o2o_content}">
 		
-		고객에게 문의 답변하기 : <br/>
+		고객님에게 문의 답변하기 : <br/>
 		
-		<textarea name="re_o2o_content" rows="10" cols="30"></textarea>
+		<textarea name="re_o2o_content" rows="20" cols="50"></textarea>
 		<br/>
 		<br/>
 		<button type="submit">답변 보내기</button>

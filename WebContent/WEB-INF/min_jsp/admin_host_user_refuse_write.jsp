@@ -22,7 +22,7 @@
 </script>
 </head>
 <body>
-<form action="admin_host_user_refuse.do" method="get" name="frm">
+<form action="admin_host_user_refuse.do" method="post" name="frm">
 	<input type="hidden" name="host_apply_no" value="${vo.host_apply_no}"></input>
 	<table>
 		<tr>
