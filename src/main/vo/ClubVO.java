@@ -1,8 +1,23 @@
-package multi.admin.vo;
+package main.vo;
 
-public class Admin_ClubVO {
-	public Admin_ClubVO(){}
+public class ClubVO {
 	
+	public ClubVO(){}
+	public ClubVO(Integer club_no, String user_id, String club_name, String club_title, String club_content,
+			String club_thumb_img, Integer max_member, String create_time, Integer l_category_no,
+			Integer c_category_no) {
+		this.club_no = club_no;
+		this.user_id = user_id;
+		this.club_name = club_name;
+		this.club_title = club_title;
+		this.club_content = club_content;
+		this.club_thumb_img = club_thumb_img;
+		this.max_member = max_member;
+		this.create_time = create_time;
+		this.l_category_no = l_category_no;
+		this.c_category_no = c_category_no;
+	}
+
 	public Integer getClub_no() {
 		return club_no;
 	}
@@ -51,41 +66,29 @@ public class Admin_ClubVO {
 	public void setCreate_time(String create_time) {
 		this.create_time = create_time;
 	}
-	public String getL_category_no() {
+	public Integer getL_category_no() {
 		return l_category_no;
 	}
-	public void setL_category_no(String l_category_no) {
+	public void setL_category_no(Integer l_category_no) {
 		this.l_category_no = l_category_no;
 	}
-	public String getC_category_no() {
+	public Integer getC_category_no() {
 		return c_category_no;
 	}
-	public void setC_category_no(String c_category_no) {
+	public void setC_category_no(Integer c_category_no) {
 		this.c_category_no = c_category_no;
 	}
 
-	public Admin_ClubVO(Integer club_no, String user_id, String club_name, String club_title, String club_content,
-			String club_thumb_img, Integer max_member, String create_time, String l_category_no, String c_category_no) {
-		this.club_no = club_no;
-		this.user_id = user_id;
-		this.club_name = club_name;
-		this.club_title = club_title;
-		this.club_content = club_content;
-		this.club_thumb_img = club_thumb_img;
-		this.max_member = max_member;
-		this.create_time = create_time;
-		this.l_category_no = l_category_no;
-		this.c_category_no = c_category_no;
-	}
-
-	private Integer club_no = null;
-	private String user_id = null;
-	private String club_name = null;
-	private String club_title = null;
-	private String club_content = null;
-	private String club_thumb_img = null;
-	private Integer max_member = null;
-	private String create_time = null;
-	private String l_category_no = null;
-	private String c_category_no = null;
+	public Integer club_no;
+	public String user_id;
+	public String club_name;
+	public String club_title;
+	public String club_content;
+	public String club_thumb_img;
+	public Integer max_member;
+	public String create_time;
+	public Integer l_category_no;
+	public Integer c_category_no;
+	
+	
 }

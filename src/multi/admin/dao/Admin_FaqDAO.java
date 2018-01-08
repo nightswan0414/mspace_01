@@ -1,14 +1,14 @@
 package multi.admin.dao;
-//±è¼Ò¿µ
+
 import java.util.List;
 
-import multi.admin.vo.Admin_FaqVO;
+import main.vo.FaqVO;
 
 public interface Admin_FaqDAO {
 	
-	public List<Admin_FaqVO> findAll() throws Exception;
-	public Admin_FaqVO faq_read( Admin_FaqVO fvo ) throws Exception;
-	public int faq_modify( Admin_FaqVO fvo ) throws Exception;
-	public int faq_remove( Admin_FaqVO fvo ) throws Exception;
-	public int faq_add( Admin_FaqVO fvo ) throws Exception;
+	public List<FaqVO> findAll() throws Exception;
+	public FaqVO faq_read( FaqVO fvo ) throws Exception;
+	public int faq_modify( FaqVO fvo ) throws Exception;
+	public int faq_remove( FaqVO fvo ) throws Exception;
+	public int faq_add( FaqVO fvo ) throws Exception;
 }

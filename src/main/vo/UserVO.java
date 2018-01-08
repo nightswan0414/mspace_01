@@ -1,23 +1,7 @@
-package multi.admin.vo;
+package main.vo;
 
-public class Admin_UserVO {
-	public Admin_UserVO(){}
-
-	public Admin_UserVO(String user_id, String ssn1, String ssn2, String passwd, String user_name, String gender,
-			String phone, String nickname, String zipcode, String email, String grade) {
-		this.user_id = user_id;
-		this.ssn1 = ssn1;
-		this.ssn2 = ssn2;
-		this.passwd = passwd;
-		this.user_name = user_name;
-		this.gender = gender;
-		this.phone = phone;
-		this.nickname = nickname;
-		this.zipcode = zipcode;
-		this.email = email;
-		this.grade = grade;
-	}
-
+public class UserVO {
+		
 	public String getUser_id() {
 		return user_id;
 	}
@@ -78,13 +62,27 @@ public class Admin_UserVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getGrade() {
+	public Integer getGrade() {
 		return grade;
 	}
-	public void setGrade(String grade) {
+	public void setGrade(Integer grade) {
 		this.grade = grade;
 	}
-
+	public UserVO(){}
+	public UserVO(String user_id, String ssn1, String ssn2, String passwd, String user_name, String gender,
+			String phone, String nickname, String zipcode, String email, Integer grade) {
+		this.user_id = user_id;
+		this.ssn1 = ssn1;
+		this.ssn2 = ssn2;
+		this.passwd = passwd;
+		this.user_name = user_name;
+		this.gender = gender;
+		this.phone = phone;
+		this.nickname = nickname;
+		this.zipcode = zipcode;
+		this.email = email;
+		this.grade = grade;
+	}
 	private String user_id = null;
 	private String ssn1 = null;
 	private String ssn2 = null;
@@ -95,5 +93,6 @@ public class Admin_UserVO {
 	private String nickname = null;
 	private String zipcode = null;
 	private String email = null;
-	private String grade = null;
+	private Integer grade = null;
+
 }

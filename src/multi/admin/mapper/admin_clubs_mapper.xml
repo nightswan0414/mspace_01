@@ -13,7 +13,7 @@
 	END$$
 	DELIMITER ;
 	-->
- 	<resultMap id="RM_p_admin_club_FindAllClubs" type="multi.admin.vo.Admin_ClubVO">
+ 	<resultMap id="RM_p_admin_club_FindAllClubs" type="main.vo.ClubVO">
 		<result property="club_no" column="club_no" jdbcType="INTEGER" />
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
 		<result property="club_name" column="club_name" jdbcType="VARCHAR" />
@@ -53,7 +53,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_club_Remove" type="multi.admin.vo.Admin_ClubVO" >
+	<parameterMap id="PM_p_admin_club_Remove" type="main.vo.ClubVO" >
 		<parameter property="club_no" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<delete id="p_admin_club_Remove" statementType="CALLABLE" 
@@ -73,10 +73,10 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_club_FindSpecificClub" type="multi.admin.vo.Admin_ClubVO" >
+	<parameterMap id="PM_p_admin_club_FindSpecificClub" type="main.vo.ClubVO" >
 		<parameter property="club_no" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
- 	<resultMap id="RM_p_admin_club_FindSpecificClub" type="multi.admin.vo.Admin_ClubVO">
+ 	<resultMap id="RM_p_admin_club_FindSpecificClub" type="main.vo.ClubVO">
 		<result property="club_no" column="club_no" jdbcType="INTEGER" />
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
 		<result property="club_name" column="club_name" jdbcType="VARCHAR" />

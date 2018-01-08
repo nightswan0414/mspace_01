@@ -12,11 +12,19 @@ import main.ModelAndView;
 import main.ModelAttribute;
 import main.RequestMapping;
 import main.RequestParam;
+import main.vo.O2OQnAVO;
 import multi.admin.dao.Admin_o2oQnADAO;
 import multi.admin.mail.EmailUtility;
-import multi.admin.vo.Admin_o2oQnAVO;
 /* 
 1:1 관리
+
+1:1 관리 문의 보내기 페이지
+문의 보낼 시 전송. 리다이렉트 1:1 관리 문의 보내기 페이지
+1:1 문의 리스트 확인 페이지.
+1:1 문의 운영자 메일 답장 완료시 확인 페이지
+1:1 문의 미답장 및 답장 페이지에서 자세한 문의 정보를 읽어들일 때 쓰는 페이지
+비회원의 1:1 문의를 이메일로 전송하는 페이지
+이메일로 1:1 문의가 정상적으로 처리되었는지 확인 하는 페이지
  */
 
 @Controller
@@ -24,47 +32,47 @@ public class Ctrl_Admin_o2oQnA {
 	@Autowired @Qualifier("admin_o2oQnADAO")
 	private Admin_o2oQnADAO admin_o2oQnADAO = null;
 	
-	// 1:1 관리
+	// 1:1 관리 문의 보내기 페이지
 	@RequestMapping("/admin_o2oQnA.do")
 	public ModelAndView admin_o2oQnA() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA");
 		return mnv;
 	}
-	
+	// 문의 보낼 시 전송. 리다이렉트 1:1 관리 문의 보내기 페이지
 	@RequestMapping("/admin_o2oQnA_add.do")
-	public ModelAndView admin_o2oQnA_add( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+	public ModelAndView admin_o2oQnA_add( @ModelAttribute O2OQnAVO ovo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
 		admin_o2oQnADAO.addAsking(ovo);
 		mnv.setViewName("redirect:/admin_o2oQnA.do");
 		return mnv;
 	}
-	
+	// 1:1 문의 리스트 확인 페이지.
 	@RequestMapping("/admin_o2oQnA_list.do")
 	public ModelAndView admin_o2oQnA_list() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list");
-		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAskWithNoRe();
+		List<O2OQnAVO> ls = admin_o2oQnADAO.findAllAskWithNoRe();
 		mnv.addObject("ls", ls);
 		return mnv;
 	}
-	
+	// 1:1 문의 운영자 메일 답장 완료시 확인 페이지
 	@RequestMapping("/admin_o2oQnA_list_reply.do")
 	public ModelAndView admin_o2oQnA_list_reply() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list_reply");
-		List<Admin_o2oQnAVO> ls = admin_o2oQnADAO.findAllAskWithRe();
+		List<O2OQnAVO> ls = admin_o2oQnADAO.findAllAskWithRe();
 		mnv.addObject("ls", ls);
 		return mnv;
 	}
-	
+	// 1:1 문의 미답장 및 답장 페이지에서 자세한 문의 정보를 읽어들일 때 쓰는 페이지
 	@RequestMapping("/admin_o2oQnA_read.do")
-	public ModelAndView admin_o2oQnA_read( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+	public ModelAndView admin_o2oQnA_read( @ModelAttribute O2OQnAVO ovo ) throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA_read");
-		Admin_o2oQnAVO vo = admin_o2oQnADAO.check_oneAsking(ovo);
+		O2OQnAVO vo = admin_o2oQnADAO.check_oneAsking(ovo);
 		mnv.addObject("vo", vo);
 		return mnv;
 	}
-	
+	// 비회원의 1:1 문의를 이메일로 전송하는 페이지
 	@RequestMapping("/admin_o2oQnA_Email.do")
-	public ModelAndView admin_o2oQnA_Email( @ModelAttribute Admin_o2oQnAVO ovo ) throws Exception {
+	public ModelAndView admin_o2oQnA_Email( @ModelAttribute O2OQnAVO ovo ) throws Exception {
 		ModelAndView mnv = new ModelAndView();
         String host = "smtp.gmail.com";
         String port = "587";
@@ -97,7 +105,7 @@ public class Ctrl_Admin_o2oQnA {
         mnv.setViewName("redirect:/admin_o2oQnA_list_reply_status.do?message="+result_message);
 		return mnv;
 	}
-	
+	// 이메일로 1:1 문의가 정상적으로 처리되었는지 확인 하는 페이지
 	@RequestMapping("/admin_o2oQnA_list_reply_status.do")
 	public ModelAndView admin_o2oQnA_list_reply_status( @RequestParam("message")String message  ) throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_o2oQnA_list_reply_status");

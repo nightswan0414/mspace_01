@@ -2,11 +2,11 @@ package multi.admin.dao;
 
 import java.util.List;
 
-import multi.admin.vo.Admin_o2oQnAVO;
+import main.vo.O2OQnAVO;
 
 public interface Admin_o2oQnADAO {
-	public List<Admin_o2oQnAVO> findAllAskWithNoRe() throws Exception;
-	public List<Admin_o2oQnAVO> findAllAskWithRe() throws Exception;
-	public int addAsking ( Admin_o2oQnAVO ovo ) throws Exception;
-	public Admin_o2oQnAVO check_oneAsking ( Admin_o2oQnAVO ovo ) throws Exception;
+	public List<O2OQnAVO> findAllAskWithNoRe() throws Exception;
+	public List<O2OQnAVO> findAllAskWithRe() throws Exception;
+	public int addAsking ( O2OQnAVO ovo ) throws Exception;
+	public O2OQnAVO check_oneAsking ( O2OQnAVO ovo ) throws Exception;
 }

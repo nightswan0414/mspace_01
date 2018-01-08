@@ -24,21 +24,16 @@ import multi.admin.dao.Admin_NoticeDAO;
 import multi.admin.dao.Admin_SpaceDAO;
 import multi.admin.dao.Admin_UserDAO;
 import multi.admin.dao.Admin_o2oQnADAO;
-import multi.admin.vo.Admin_FaqVO;
-import multi.admin.vo.Admin_HostVO;
-import multi.admin.vo.Admin_NoticeVO;
-import multi.admin.vo.Admin_SpaceVO;
-import multi.admin.vo.Admin_UserVO;
-import multi.admin.vo.Admin_o2oQnAVO;
-
 /* 
 이벤트 관리
+
+이벤트 관리 페이지
  */
 
 @Controller
 public class Ctrl_Admin_Events {
 	
-	// 이벤트 관리
+	// 이벤트 관리 페이지
 	@RequestMapping("/admin_event.do")
 	public ModelAndView admin_event() throws Exception {
 		ModelAndView mnv = new ModelAndView("admin_event");

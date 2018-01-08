@@ -222,16 +222,16 @@ CREATE TABLE ClubT
 );
 
 
-#2018-01-02 테이블 추가
+#오후 4:46 2018-01-05 컬럼 추가
 CREATE TABLE Club_applyT
 (
     `apply_no`       INT             NOT NULL    AUTO_INCREMENT, 
     `user_id`        VARCHAR(20)     NOT NULL, 
     `club_no`        INT             NOT NULL, 
-    `apply_content`  TEXT	     NOT NULL, 
+    `apply_content`  TEXT	     NOT NULL,
+    `etc`	     TEXT,
     PRIMARY KEY (apply_no)
 );
-
 
 # 2018.01.03 : HostT, SpaceT 에서  CRN ==> crn 로 수정
 

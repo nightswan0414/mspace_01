@@ -1,11 +1,9 @@
-package multi.admin.vo;
+package main.vo;
 
-public class Admin_SpaceVO {
-	public Admin_SpaceVO(){}
-	
-	public Admin_SpaceVO(Integer space_no, String crn, String space_title, String space_content, String space_thumb_img,
+public class SpaceVO {
+	public SpaceVO(Integer space_no, String crn, String space_title, String space_content, String space_thumb_img,
 			String open_time, String close_time, Integer price, Integer max_people, Integer min_people,
-			String space_call, String zipcode, Integer c_category_no, Integer l_category_no, String the_time) {
+			String space_call, String zipcode, Integer c_category_no, Integer l_category_no, Integer the_time) {
 		this.space_no = space_no;
 		this.crn = crn;
 		this.space_title = space_title;
@@ -94,10 +92,10 @@ public class Admin_SpaceVO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	public Integer getc_category_no() {
+	public Integer getC_category_no() {
 		return c_category_no;
 	}
-	public void setc_category_no(Integer c_category_no) {
+	public void setC_category_no(Integer c_category_no) {
 		this.c_category_no = c_category_no;
 	}
 	public Integer getL_category_no() {
@@ -106,26 +104,30 @@ public class Admin_SpaceVO {
 	public void setL_category_no(Integer l_category_no) {
 		this.l_category_no = l_category_no;
 	}
-	public String getThe_time() {
+	public Integer getThe_time() {
 		return the_time;
 	}
-	public void setThe_time(String the_time) {
+	public void setThe_time(Integer the_time) {
 		this.the_time = the_time;
 	}
+	public Integer space_no;
+	public String crn;
+	public String space_title;
+	public String space_content;
+	public String space_thumb_img;
+	public String open_time;
+	public String close_time;
+	public Integer price;
+	public Integer max_people;
+	public Integer min_people;
+	public String space_call;
+	public String zipcode;
+	public Integer c_category_no;
+	public Integer l_category_no;
+	public Integer the_time;
+	public SpaceVO(){}
+	
+	
 
-	private Integer space_no = null;
-	private String crn = null;
-	private String space_title = null;
-	private String space_content = null;
-	private String space_thumb_img = null;
-	private String open_time = null;
-	private String close_time = null;
-	private Integer price = null;
-	private Integer max_people = null;
-	private Integer min_people = null;
-	private String space_call = null;
-	private String zipcode = null;
-	private Integer c_category_no = null;
-	private Integer l_category_no = null;
-	private String the_time = null;
+	
 }

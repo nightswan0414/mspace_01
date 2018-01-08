@@ -17,7 +17,7 @@
 	END$$
 	DELIMITER ;
 	-->
- 	<resultMap id="RM_p_admin_faq_FindAllTexts" type="multi.admin.vo.Admin_FaqVO">
+ 	<resultMap id="RM_p_admin_faq_FindAllTexts" type="main.vo.FaqVO">
 		<result property="faq_no" column="faq_no" jdbcType="INTEGER" />
 		<result property="faq_title" column="faq_title" jdbcType="VARCHAR" />
 		<result property="faq_content" column="faq_content" jdbcType="VARCHAR" />
@@ -39,10 +39,10 @@
 	DELIMITER ;	
 	CALL p_admin_faq_readFaq(1);
 	-->
-	<parameterMap id="PM_p_admin_faq_readFaq" type="multi.admin.vo.Admin_FaqVO" >
+	<parameterMap id="PM_p_admin_faq_readFaq" type="main.vo.FaqVO" >
 		<parameter property="faq_no" mode="IN" jdbcType="INTEGER" />
 	</parameterMap >
-	<resultMap id="RM_p_admin_faq_readFaq" type="multi.admin.vo.Admin_FaqVO">
+	<resultMap id="RM_p_admin_faq_readFaq" type="main.vo.FaqVO">
 		<result property="faq_no" column="faq_no" jdbcType="INTEGER" />
 		<result property="faq_title" column="faq_title" jdbcType="VARCHAR" />
 		<result property="faq_content" column="faq_content" jdbcType="VARCHAR" />
@@ -67,13 +67,13 @@
 	DELIMITER ;
 	CALL p_admin_faq_modifyFaq (1,'tt','good');
 	-->
-	<parameterMap id="PM_p_admin_faq_modifyFaq" type="multi.admin.vo.Admin_FaqVO" >
+	<parameterMap id="PM_p_admin_faq_modifyFaq" type="main.vo.FaqVO" >
 		<parameter property="faq_no" mode="IN" jdbcType="INTEGER"/>
 		<parameter property="faq_title" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="faq_content" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<update id="p_admin_faq_modifyFaq" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_FaqVO"
+		parameterType = "main.vo.FaqVO"
 		parameterMap = "PM_p_admin_faq_modifyFaq">
 		{call p_admin_faq_modifyFaq(?,?,?)}
 	</update>
@@ -91,11 +91,11 @@
 	DELIMITER ;
 	CALL p_admin_faq_delFaq (1);
 	-->
-	<parameterMap id="PM_p_admin_faq_delFaqq" type="multi.admin.vo.Admin_FaqVO" >
+	<parameterMap id="PM_p_admin_faq_delFaqq" type="main.vo.FaqVO" >
 		<parameter property="faq_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
 	<delete id="p_admin_faq_delFaq" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_FaqVO"
+		parameterType = "main.vo.FaqVO"
 		parameterMap = "PM_p_admin_faq_delFaqq">
 		{call p_admin_faq_delFaq(?)}
 	</delete>
@@ -114,12 +114,12 @@
 	DELIMITER ;	
 	CALL p_admin_faq_addFaq ( 'test2', 'nice' );
 	-->
-	<parameterMap id="PM_p_admin_faq_addFaq" type="multi.admin.vo.Admin_FaqVO" >
+	<parameterMap id="PM_p_admin_faq_addFaq" type="main.vo.FaqVO" >
 		<parameter property="faq_title" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="faq_content" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<insert id="p_admin_faq_addFaq" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_FaqVO"
+		parameterType = "main.vo.FaqVO"
 		parameterMap = "PM_p_admin_faq_addFaq">
 		{call p_admin_faq_addFaq(?,?)}
 	</insert>

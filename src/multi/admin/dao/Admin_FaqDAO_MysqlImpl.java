@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import multi.admin.vo.Admin_FaqVO;
+import main.vo.FaqVO;
 
 public class Admin_FaqDAO_MysqlImpl implements Admin_FaqDAO {
 	
@@ -14,27 +14,27 @@ public class Admin_FaqDAO_MysqlImpl implements Admin_FaqDAO {
 	private SqlSession sqlSession = null;
 	
 	@Override
-	public List<Admin_FaqVO> findAll() throws Exception {
+	public List<FaqVO> findAll() throws Exception {
 		return sqlSession.selectList("admin_faq.p_admin_faq_FindAllTexts");
 	}
 	
 	@Override
-	public Admin_FaqVO faq_read(Admin_FaqVO fvo) throws Exception {
+	public FaqVO faq_read(FaqVO fvo) throws Exception {
 		return sqlSession.selectOne("admin_faq.p_admin_faq_readFaq",fvo);
 	}
 
 	@Override
-	public int faq_modify(Admin_FaqVO fvo) throws Exception {
+	public int faq_modify(FaqVO fvo) throws Exception {
 		return sqlSession.update("admin_faq.p_admin_faq_modifyFaq",fvo);
 	}
 
 	@Override
-	public int faq_remove(Admin_FaqVO fvo) throws Exception {
+	public int faq_remove(FaqVO fvo) throws Exception {
 		return sqlSession.delete("admin_faq.p_admin_faq_delFaq",fvo);
 	}
 	
 	@Override
-	public int faq_add(Admin_FaqVO fvo) throws Exception {
+	public int faq_add(FaqVO fvo) throws Exception {
 		return sqlSession.insert("admin_faq.p_admin_faq_addFaq",fvo);
 	}
 

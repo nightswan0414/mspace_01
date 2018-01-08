@@ -19,7 +19,7 @@
 	DELIMITER ;
 	CALL p_admin_user_findAll();
 	-->
-	<resultMap id="RM_p_admin_user_findAll" type="multi.admin.vo.Admin_UserVO" >
+	<resultMap id="RM_p_admin_user_findAll" type="main.vo.UserVO" >
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
 		<result property="ssn1" column="ssn1" jdbcType="VARCHAR" />
 		<result property="ssn2" column="ssn2" jdbcType="VARCHAR" />
@@ -47,10 +47,10 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_user_findUser" type="multi.admin.vo.Admin_UserVO" >
+	<parameterMap id="PM_p_admin_user_findUser" type="main.vo.UserVO" >
 		<parameter property="user_id" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
-	<resultMap id="RM_p_admin_user_findUser" type="multi.admin.vo.Admin_UserVO" >
+	<resultMap id="RM_p_admin_user_findUser" type="main.vo.UserVO" >
 		<result property="user_id" column="user_id" jdbcType="VARCHAR" />
 		<result property="ssn1" column="ssn1" jdbcType="VARCHAR" />
 		<result property="ssn2" column="ssn2" jdbcType="VARCHAR" />
@@ -81,11 +81,11 @@
 	DELIMITER ;
 	CALL p_admin_user_DelUser('yang2');
 	-->
-	<parameterMap id="PM_p_admin_user_DelUser" type="multi.admin.vo.Admin_UserVO" >
+	<parameterMap id="PM_p_admin_user_DelUser" type="main.vo.UserVO" >
 		<parameter property="user_id" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<delete id="p_admin_user_DelUser" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_UserVO"
+		parameterType = "main.vo.UserVO"
 		parameterMap = "PM_p_admin_user_DelUser">
 		{call p_admin_user_DelUser(?)}
 	</delete>
@@ -108,7 +108,7 @@
 	DELIMITER ;
 	CALL p_admin_user_modifyUser('user','일양재', '01012345678', 'gentleGuy', '442-471', 'remd@naver.com');
 	-->
-	<parameterMap id="PM_p_admin_user_modifyUser" type="multi.admin.vo.Admin_UserVO" >
+	<parameterMap id="PM_p_admin_user_modifyUser" type="main.vo.UserVO" >
 		<parameter property="user_id" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="user_name" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="phone" mode="IN" jdbcType="VARCHAR"/>
@@ -117,7 +117,7 @@
 		<parameter property="email" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<update id="p_admin_user_modifyUser" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_UserVO"
+		parameterType = "main.vo.UserVO"
 		parameterMap = "PM_p_admin_user_modifyUser">
 		{call p_admin_user_modifyUser(?,?,?,?,?,?)}
 	</update>

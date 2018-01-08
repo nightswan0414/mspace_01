@@ -24,7 +24,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_o2oQnA_add" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<parameterMap id="PM_p_admin_o2oQnA_add" type="main.vo.O2OQnAVO" >
 		<parameter property="o2o_title" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_content" mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="o2o_email" mode="IN" jdbcType="VARCHAR"/>
@@ -32,7 +32,7 @@
 		<parameter property="o2o_phone" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
 	<insert id="p_admin_o2oQnA_add" statementType="CALLABLE"
-		parameterType = "multi.admin.vo.Admin_o2oQnAVO"
+		parameterType = "main.vo.O2OQnAVO"
 		parameterMap = "PM_p_admin_o2oQnA_add">
 		{call p_admin_o2oQnA_add(?,?,?,?,?)}
 	</insert>
@@ -46,7 +46,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<resultMap id="RM_p_admin_o2oQnA_findAll_noRe" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<resultMap id="RM_p_admin_o2oQnA_findAll_noRe" type="main.vo.O2OQnAVO" >
 		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
 		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
 		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<resultMap id="RM_p_admin_o2oQnA_findAll_Re" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<resultMap id="RM_p_admin_o2oQnA_findAll_Re" type="main.vo.O2OQnAVO" >
 		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
 		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
 		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />
@@ -96,10 +96,10 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_o2oQnA_checkOne" type="multi.admin.vo.Admin_o2oQnAVO">
+	<parameterMap id="PM_p_admin_o2oQnA_checkOne" type="main.vo.O2OQnAVO">
 		<parameter property="o2o_no" mode="IN" jdbcType="INTEGER" />
 	</parameterMap>
-	<resultMap id="RM_p_admin_o2oQnA_checkOne" type="multi.admin.vo.Admin_o2oQnAVO" >
+	<resultMap id="RM_p_admin_o2oQnA_checkOne" type="main.vo.O2OQnAVO" >
 		<result property="o2o_no" column="o2o_no" jdbcType="INTEGER" />
 		<result property="o2o_title" column="o2o_title" jdbcType="VARCHAR" />
 		<result property="o2o_content" column="o2o_content" jdbcType="VARCHAR" />

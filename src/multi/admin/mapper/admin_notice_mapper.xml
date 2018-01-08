@@ -13,7 +13,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<resultMap id="RM_p_admin_notice_FindAllTexts" type="multi.admin.vo.Admin_NoticeVO">
+	<resultMap id="RM_p_admin_notice_FindAllTexts" type="main.vo.NoticeVO">
 		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
 		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
 		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
@@ -34,13 +34,13 @@
 	END$$
 	DELIMITER ;
 	-->
-	<resultMap id="RM_p_admin_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
+	<resultMap id="RM_p_admin_notice_FindText" type="main.vo.NoticeVO">
 		<result property="notice_no" column="notice_no" jdbcType="INTEGER"/>
 		<result property="notice_title" column="notice_title" jdbcType="VARCHAR"/>
 		<result property="notice_content" column="notice_content" jdbcType="VARCHAR"/>
 		<result property="the_time" column="the_time" jdbcType="VARCHAR"/>
 	</resultMap>
-	<parameterMap id="PM_p_admin_notice_FindText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_FindText" type="main.vo.NoticeVO">
 		<parameter property="notice_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
 	<select id="p_admin_notice_FindText" statementType="CALLABLE"
@@ -61,7 +61,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_notice_AddText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_AddText" type="main.vo.NoticeVO">
 		<parameter property="notice_title"   mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="notice_content" mode="IN" jdbcType="VARCHAR"/>
 	</parameterMap>
@@ -85,7 +85,7 @@
 	END$$
 	DELIMITER ;
 	-->
-	<parameterMap id="PM_p_admin_notice_modText" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_modText" type="main.vo.NoticeVO">
 		<parameter property="notice_no"   mode="IN" jdbcType="INTEGER"/>
 		<parameter property="notice_title"   mode="IN" jdbcType="VARCHAR"/>
 		<parameter property="notice_content" mode="IN" jdbcType="VARCHAR"/>
@@ -107,7 +107,7 @@
 	DELIMITER ;
 	-->
 	
-	<parameterMap id="PM_p_admin_notice_DelByPK" type="multi.admin.vo.Admin_NoticeVO">
+	<parameterMap id="PM_p_admin_notice_DelByPK" type="main.vo.NoticeVO">
 		<parameter property="notice_no" mode="IN" jdbcType="INTEGER"/>
 	</parameterMap>
 
